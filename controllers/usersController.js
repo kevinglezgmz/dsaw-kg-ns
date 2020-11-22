@@ -1,0 +1,6 @@
+const fs = require('fs');
+const PATH = require('path');
+
+class UsersController{};
+
+module.exports = UsersController;
