@@ -1,0 +1,12 @@
+{
+    "apikey": "callVkRVHYTx_G3zCJtAHCIRhzRq-vg0reLuClAr2Ihu",
+    "host": "51f596d5-ebd6-4628-a0b4-138e79a6339e-bluemix.cloudantnosqldb.appdomain.cloud",
+    "iam_apikey_description": "Auto-generated for key 0857e9cf-7d6f-4860-a5e0-9318754f1898",
+    "iam_apikey_name": "nat_cred",
+    "iam_role_crn": "crn:v1:bluemix:public:iam::::serviceRole:Manager",
+    "iam_serviceid_crn": "crn:v1:bluemix:public:iam-identity::a/fd6c8ba31c914074851cc612efc8c6c8::serviceid:ServiceId-1bdcfca6-dfe5-4b6a-b46d-c5e000a35635",
+    "password": "d8dd1f941f453ad23fda2666f810c2c293d871712568a44f50faac73d207688c",
+    "port": 443,
+    "url": "https://51f596d5-ebd6-4628-a0b4-138e79a6339e-bluemix:d8dd1f941f453ad23fda2666f810c2c293d871712568a44f50faac73d207688c@51f596d5-ebd6-4628-a0b4-138e79a6339e-bluemix.cloudantnosqldb.appdomain.cloud",
+    "username": "51f596d5-ebd6-4628-a0b4-138e79a6339e-bluemix"
+}
