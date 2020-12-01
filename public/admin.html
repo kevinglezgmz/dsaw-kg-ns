@@ -2,44 +2,37 @@
 <html lang="en">
 
 <head>
-  <title>Búsqueda</title>
+  <title>Administrar Tienda</title>
   <link rel="icon" href="./imgs/carro-de-la-compra.png" />
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <style>
-    .pagination {
-      margin: 0.5em 0.5em;
-      width: 100%;
-      text-align: center;
-
+    .media {
+      border: 1px solid #d5dbdd;
+      padding: 5px 20px;
+      border-radius: 5px;
+      box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.04);
+      background: #fff;
+      margin: 2%;
     }
 
-    .media,
-    .col-sm-2 {
-      margin: 0.5em 0.5em;
+    #modelo img {
+      height: 120px;
+      width: 120px;
     }
 
-    #product_img {
-      width: 10%;
-      height: 10%;
-    }
-
-    #buyList {
-      list-style: none;
-    }
-
-    #buyList li {
-      margin: 0.5em 0.5em;
+    .media-right {
+      margin: 3%;
     }
   </style>
 
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+    integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-  <script src="https://kit.fontawesome.com/928386cd89.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -87,27 +80,29 @@
     </div>
   </nav>
 
-  <div class="row">
-    <div class="col-sm-2">
-      <p>Aquí van categorias, etc</p>
+  <div class="col-6 mt-2">
+    <a class="btn btn-success" href="./addProduct.html" role="button">Agregar nuevo producto</a>
+  </div>
+  <div class="media col-8 mt-2" id="modelo">
+    <div class="media-left align-self-center mr-3">
+      <img class="rounded-circle" style="width: inherit;" src="imgs/bolsa-de-la-compra.png">
     </div>
-    <div class="col-sm-8">
-      <div class="media">
-        <img id="product_img" src="imgs/carro-de-la-compra.png" class="align-self-center mr-3" alt="...">
-        <div class="media-body">
-          <h5 class="mt-0">Nombre del producto</h5>
-          <p>Aquí va toda la descripción</p>
-        </div>
-        <ul id="buyList">
-          <li>
-            <button type="button" class="btn btn-success">Comprar ahora</button>
-          </li>
-          <li>
-            <button type="button" class="btn btn-secondary">Añadir al carrito</button>
-          </li>
-        </ul>
+    <div class="media-body">
+      <h4>Nombre del producto</h4>
+      <p>id</p>
+      <p>Precio</p>
+      <p>Descripción</p>
+    </div>
+    <div class="media-right align-self-center">
+      <div class="row">
+        <a href="#" class="btn btn-primary edit"><i class="fas fa-search edit  "></i></a>
       </div>
-      <hr />
+      <div class="row">
+        <a href="#" class="btn btn-primary mt-2"><i class="fas fa-pencil-alt edit  "></i></a>
+      </div>
+      <div class="row">
+        <a href="#" class="btn btn-primary mt-2"><i class="fas fa-trash-alt  remove "></i></a>
+      </div>
     </div>
   </div>
 
@@ -139,9 +134,8 @@
       <p>Información de la pagina <i class="fa fa-registered" aria-hidden="true"></i></p>
     </div>
   </footer>
+
   <!-- Optional JavaScript -->
-  <script src="js/httprequests.js"></script>
-  <script src="js/productSearch.js"></script>
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
