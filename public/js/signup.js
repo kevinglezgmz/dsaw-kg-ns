@@ -56,10 +56,6 @@ function handleFormSignUp(event) {
             console.log(err);
           }
         );
-        // let token = JSON.parse(response.data);
-        // setCookie("token", token.token, 2);
-        // setCookie("user-email", email, 2);
-        // window.location.replace("/");
       },
       (err) => {
         console.log(err);
@@ -72,16 +68,4 @@ function handleFormSignUp(event) {
 
 document.addEventListener("DOMContentLoaded", () => {
   verifyLoggedUser();
-
-  // let signupForm = document.getElementById("signupForm");
-  // signupForm.addEventListener("change", (ev) => {
-  //   let signupButton = document.getElementById("signupBtn");
-  //   let password = document.getElementById("inputPassword").value;
-  //   let confirmPassword = document.getElementById("inputConfirmPassword").value;
-  //   if (password === confirmPassword) {
-  //     signupButton.disabled = false;
-  //   } else {
-  //     signupButton.disabled = true;
-  //   }
-  // });
 });
