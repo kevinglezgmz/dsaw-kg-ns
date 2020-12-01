@@ -2,44 +2,35 @@
 <html lang="en">
 
 <head>
-  <title>Búsqueda</title>
+  <title>Agregar artículo</title>
   <link rel="icon" href="./imgs/carro-de-la-compra.png" />
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <style>
-    .pagination {
-      margin: 0.5em 0.5em;
-      width: 100%;
-      text-align: center;
-
+    .form-check label {
+      margin: 0% 2% 0% 2%;
     }
 
-    .media,
-    .col-sm-2 {
-      margin: 0.5em 0.5em;
+    form {
+      margin: 2% 15% 3%;
     }
 
-    #product_img {
-      width: 10%;
-      height: 10%;
+    .form-group,
+    .form-check {
+      margin: 1% 0%;
     }
 
-    #buyList {
-      list-style: none;
-    }
-
-    #buyList li {
-      margin: 0.5em 0.5em;
+    #addProduct {
+      display: block;
+      margin: auto;
     }
   </style>
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-  <script src="https://kit.fontawesome.com/928386cd89.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -87,61 +78,75 @@
     </div>
   </nav>
 
-  <div class="row">
-    <div class="col-sm-2">
-      <p>Aquí van categorias, etc</p>
-    </div>
-    <div class="col-sm-8">
-      <div class="media">
-        <img id="product_img" src="imgs/carro-de-la-compra.png" class="align-self-center mr-3" alt="...">
-        <div class="media-body">
-          <h5 class="mt-0">Nombre del producto</h5>
-          <p>Aquí va toda la descripción</p>
-        </div>
-        <ul id="buyList">
-          <li>
-            <button type="button" class="btn btn-success">Comprar ahora</button>
-          </li>
-          <li>
-            <button type="button" class="btn btn-secondary">Añadir al carrito</button>
-          </li>
-        </ul>
+  <form>
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <label for="productName"><h5>Nombre del Producto</h5></label>
+        <input type="text" class="form-control" id="productName">
       </div>
-      <hr />
+      <div class="col-md-6 mb-3">
+        <label for="productPrice"><h5>Precio</h5></label>
+        <input type="number" class="form-control" id="productPrice">
+      </div>
     </div>
-  </div>
-
-  <nav aria-label="...">
-    <ul class="pagination justify-content-center">
-      <li class="page-item disabled">
-        <span class="page-link">Previous</span>
-      </li>
-      <li class="page-item active"><a class="page-link" href="#">1</a></li>
-      <li class="page-item" aria-current="page">
-        <span class="page-link">
-          2
-          <span class="sr-only">(current)</span>
-        </span>
-      </li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item">
-        <a class="page-link" href="#">Next</a>
-      </li>
-    </ul>
-  </nav>
-
-  <footer class="pt-4 my-md-5 pt-md-5 border-top">
-    <div style="text-align: center; width: 100%">
-      <i class="footer-icon fab fa-twitter fa-3x"></i>
-      <i class="footer-icon fab fa-facebook fa-3x"></i>
-      <i class="footer-icon fab fa-instagram fa-3x"></i>
-      <p></p>
-      <p>Información de la pagina <i class="fa fa-registered" aria-hidden="true"></i></p>
+    <div class="form-group">
+      <label for="productDescription"><h5>Descripción</h5></label>
+      <textarea class="form-control" id="productDescription" rows="3"></textarea>
     </div>
-  </footer>
+
+    <div class="form-check">
+      <h5>Tallas disponibles</h5>
+      <label class="form-check-label checkbox-inline" for="xch">
+        <input class="form-check-input" type="checkbox" value="" id="xch">
+        XCH
+      </label>
+
+      <label class="form-check-label checkbox-inline" for="ch">
+        <input class="form-check-input" type="checkbox" value="" id="ch">
+        CH
+      </label>
+
+      <label class="form-check-label checkbox-inline" for="m">
+        <input class="form-check-input" type="checkbox" value="" id="m">
+        M
+      </label>
+
+      <label class="form-check-label checkbox-inline" for="g">
+        <input class="form-check-input" type="checkbox" value="" id="g">
+        G
+      </label>
+
+      <label class="form-check-label checkbox-inline" for="exg">
+        <input class="form-check-input" type="checkbox" value="" id="exg">
+        EXG
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label for="productImg"><h5>Imagen del producto</h5></label>
+      <input type="file" class="form-control-file" id="productImg">
+    </div>
+    <div class="form-group">
+      <label for="addColor"><h5>Colores</h5></label>
+      <input type="text" class="form-control mb-2 mr-sm-2" id="addColor" placeholder="#00000F">
+    </div>
+    <div class="form-group">
+      <label for="category"><h5>Categoría</h5></label>
+      <select class="custom-select" id="category">
+        <option value="Abrigos" selected>Abrigos</option>
+        <option value="Accesorios">Accesorios</option>
+        <option value="Blusas">Blusas</option>
+        <option value="Camisas">Camisas</option>
+        <option value="Pijamas">Pijamas</option>
+        <option value="Ropa deportiva">Ropa deportiva</option>
+        <option value="Vestidos">Vestidos</option>
+      </select>
+    </div>
+    <div class="form-group"><button type="button" class="btn btn-success" id="addProduct"><h5>Agregar nuevo
+        producto</h5></button></div>
+  </form>
+
   <!-- Optional JavaScript -->
-  <script src="js/httprequests.js"></script>
-  <script src="js/productSearch.js"></script>
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
