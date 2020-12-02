@@ -62,6 +62,8 @@ router.get("/:email", authentication, async (req, res) => {
 
 router.put("/:email", authentication, async (req, res) => {
   let userUpdatee = req.body;
+  let hash = bcrypt.hashSync(userUpdatee.password, 10);
+  userUpdatee.password = hash;
   let user = await userCtrlr.getUserByEmail(req.params.email);
   res.set("Content-Type", "application/json");
   if (user) {
