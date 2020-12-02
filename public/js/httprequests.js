@@ -32,7 +32,7 @@ function sendHTTPRequest(urlAPI, data, method, cbOK, cbError) {
   xhr.open(method, siteURL + urlAPI);
   // 3. indicar tipo de datos JSON
   xhr.setRequestHeader("Content-Type", "application/json");
-  console.log(TOKEN);
+  //console.log(TOKEN);
   xhr.setRequestHeader("Authorization", "Bearer " + TOKEN);
   // 4. Enviar solicitud al servidor
   if (typeof data === "object") data = JSON.stringify(data);

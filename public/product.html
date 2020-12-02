@@ -203,6 +203,29 @@
     .footer-icon {
       margin: 0 0.5em;
     }
+
+    .square {
+      height: 50px !important;
+      width: 50px !important;
+      margin: 1%;
+    }
+    .active{
+      width: 70%;
+      height: 70%;
+      align-self: center;
+      margin-left: 15%;
+    }
+    .colors{
+      margin: 2% 0% 2% 0%;
+    }
+
+    .sizes span, .color, li{
+      cursor: pointer!important;
+    }
+
+    .sizes .selected{
+      color: red!important;
+    }
   </style>
 </head>
 
@@ -250,8 +273,8 @@
       <a class="navbar-brand" href="#"><img src="./imgs/bolsa-de-la-compra.png" alt="LOGO" width="30px" /></a>
     </div>
   </nav>
-
-  <div class="container">
+  <div id="responseMSG"></div>
+  <div class="container" id="product">
     <div class="card">
       <div class="container-fliud">
         <div class="wrapper row">
