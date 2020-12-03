@@ -1,45 +1,60 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>Editar cuenta</title>
+    <link rel="icon" href="./imgs/carro-de-la-compra.png" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-<head>
-  <title>Editar cuenta</title>
-  <link rel="icon" href="./imgs/carro-de-la-compra.png" />
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/928386cd89.js" crossorigin="anonymous"></script>
+    <style>
+      .row {
+        margin: 1em 1em 0 1em;
+      }
 
-  <script src="https://kit.fontawesome.com/928386cd89.js" crossorigin="anonymous"></script>
-  <style>
-    .row {
-      margin: 1em 1em 0 1em;
-    }
+      input,
+      button {
+        margin: 0.3em;
+      }
+    </style>
+  </head>
 
-    input,
-    button {
-      margin: 0.3em;
-    }
-  </style>
-</head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-primary">
+      <a class="navbar-brand" href="index.html"><img src="./imgs/carro-de-la-compra.png" alt="LOGO" width="30px" /></a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-<body>
-  <nav class="navbar navbar-expand-md navbar-dark bg-primary">
-    <a class="navbar-brand" href="index.html"><img src="./imgs/carro-de-la-compra.png" alt="LOGO" width="30px" /></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li>
-          <input style="width: 500px" class="form-control mr-sm-2" type="search" placeholder="Buscar artículos..."
-            aria-label="Search" />
-        </li>
-        <!-- <li class="nav-item dropdown">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li>
+            <input
+              style="width: 500px"
+              class="form-control mr-sm-2"
+              type="search"
+              placeholder="Buscar artículos..."
+              aria-label="Search"
+            />
+          </li>
+          <!-- <li class="nav-item dropdown">
               <a
                 class="nav-link dropdown-toggle"
                 href="#"
@@ -58,87 +73,92 @@
                 <a class="dropdown-item" href="#">Something else here</a>
               </div>
             </li> -->
-      </ul>
-      <!-- <form class="form-inline my-2 my-lg-0">
+        </ul>
+        <!-- <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </form> -->
-      <a class="navbar-brand" style="margin-right: 0" href="./orders.html">Pedidos</a>
-      <a class="navbar-brand" href="./user.html" style="margin: 0 2em"><img src="./imgs/usuario.png" alt="LOGO"
-          width="30px" /></a>
-      <a class="navbar-brand" href="#"><img src="./imgs/bolsa-de-la-compra.png" alt="LOGO" width="30px" /></a>
-    </div>
-  </nav>
+        <a class="navbar-brand" style="margin-right: 0" href="./orders.html">Pedidos</a>
+        <a class="navbar-brand" href="./user.html" style="margin: 0 2em"
+          ><img src="./imgs/usuario.png" alt="LOGO" width="30px"
+        /></a>
+        <a class="navbar-brand" href="#"><img src="./imgs/bolsa-de-la-compra.png" alt="LOGO" width="30px" /></a>
+      </div>
+    </nav>
 
-  <div>
-    <div class="row">
-      <div class="list-group col-sm-3">
-        <h4>Editar datos personales</h4>
-        <a href="user.html" class="list-group-item list-group-item-action">
-          Mi cuenta
-        </a>
-        <a href="orders.html" class="list-group-item list-group-item-action">Pedidos</a>
-        <!--<a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
+    <div>
+      <div class="row">
+        <div class="list-group col-sm-3">
+          <h4>Editar datos personales</h4>
+          <a href="user.html" class="list-group-item list-group-item-action"> Mi cuenta </a>
+          <a href="orders.html" class="list-group-item list-group-item-action">Pedidos</a>
+          <!--<a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
                 <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
                 <a href="#" class="list-group-item list-group-item-action disabled" tabindex="-1"
                     aria-disabled="true">Vestibulum at eros</a>-->
-      </div>
+        </div>
 
+        <div class="media col-sm-6">
+          <div class="media-body text-center">
+            <form class="form-signin text-center" id="updateForm" onsubmit="return handleFormUpdate(event)">
+              <!--<img class="mb-4" src="./imgs/carro-de-la-compra.png" alt="" width="72" height="72" />-->
+              <h1 class="h3 mb-3 font-weight-normal">Cambiar datos personales</h1>
+              <label for="inputName" class="sr-only">Nombre</label>
+              <input type="text" id="inputName" class="form-control" placeholder="Nombre(s)" required="" autofocus="" />
 
-      <div class="media col-sm-6">
-        <div class="media-body text-center">
-          <form class="form-signin text-center">
-            <!--<img class="mb-4" src="./imgs/carro-de-la-compra.png" alt="" width="72" height="72" />-->
-            <h1 class="h3 mb-3 font-weight-normal">Cambiar datos personales</h1>
-            <label for="inputName" class="sr-only">Nombre</label>
-            <input type="text" id="inputName" class="form-control" placeholder="Nombre(s)" required="" autofocus="" />
+              <label for="inputSurnames" class="sr-only">Apellidos</label>
+              <input type="text" id="inputSurnames" class="form-control" placeholder="Apellidos" required="" autofocus="" />
 
-            <label for="inputSurnames" class="sr-only">Apellidos</label>
-            <input type="text" id="inputSurnames" class="form-control" placeholder="Apellidos" required=""
-              autofocus="" />
-
-            <!--<label for="inputEmail" class="sr-only">Correo electrónico</label>
+              <!--<label for="inputEmail" class="sr-only">Correo electrónico</label>
                         <input type="email" id="inputEmail" class="form-control" placeholder="Correo electrónico" required="" autofocus="" />-->
 
-            <label for="inputPassword" class="sr-only">Contraseña</label>
-            <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required="" />
+              <label for="inputPassword" class="sr-only">Contraseña</label>
+              <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required="" />
 
-            <label for="inputConfirmPassword" class="sr-only">Confirmar contraseña</label>
-            <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Confirmar contraseña"
-              required="" />
+              <label for="inputConfirmPassword" class="sr-only">Confirmar contraseña</label>
+              <input
+                type="password"
+                id="inputConfirmPassword"
+                class="form-control"
+                placeholder="Confirmar contraseña"
+                required=""
+              />
 
-            <button class="btn btn-lg btn-success btn-block" type="submit">Editar datos personales</button>
-
-
-          </form>
+              <button class="btn btn-lg btn-success btn-block" type="submit">Editar datos personales</button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <footer class="pt-4 my-md-5 pt-md-5 border-top">
-    <div style="text-align: center; width: 100%">
-      <i class="footer-icon fab fa-twitter fa-3x"></i>
-      <i class="footer-icon fab fa-facebook fa-3x"></i>
-      <i class="footer-icon fab fa-instagram fa-3x"></i>
-      <p></p>
-      <p>Información de la pagina <i class="fa fa-registered" aria-hidden="true"></i></p>
-    </div>
-  </footer>
+    <footer class="pt-4 my-md-5 pt-md-5 border-top">
+      <div style="text-align: center; width: 100%">
+        <i class="footer-icon fab fa-twitter fa-3x"></i>
+        <i class="footer-icon fab fa-facebook fa-3x"></i>
+        <i class="footer-icon fab fa-instagram fa-3x"></i>
+        <p></p>
+        <p>Información de la pagina <i class="fa fa-registered" aria-hidden="true"></i></p>
+      </div>
+    </footer>
 
-  <!-- Optional JavaScript -->
-  <script src="js/httprequests.js"></script>
-  <script src="js/editUser.js"></script>
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-  </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-  </script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-  </script>
-</body>
-
+    <!-- Optional JavaScript -->
+    <script src="js/httprequests.js"></script>
+    <script src="js/editUser.js"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
