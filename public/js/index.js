@@ -104,6 +104,7 @@ function getAllProducts() {
       setOfferProducts();
     },
     (err) => {
+      console.log(err);
     }
   );
 }
