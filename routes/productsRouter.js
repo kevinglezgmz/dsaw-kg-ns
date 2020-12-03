@@ -8,6 +8,19 @@ router.get("/", async (req, res) => {
   if (req.query.name || req.query.category) {
     let products = await productCtrlr.getProductsByNameOrDescription(req.query.name, req.query.category);
     res.send(products);
+  } else if (req.query.products) {
+    let products = [];
+    let productsID = {};
+    let allProducts = await productCtrlr.getAllProducts();
+    for (let productID of req.query.products.split(",")) {
+      productsID[productID] = productID;
+    }
+    for (let product of allProducts) {
+      if (productsID[product.productID.toString()]) {
+        products.push(product);
+      }
+    }
+    res.send(products);
   } else {
     let products = await productCtrlr.getAllProducts();
     res.send(products);

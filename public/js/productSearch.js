@@ -7,6 +7,13 @@ let NAME_FILTER = "";
 let productsList;
 const MAX_PRODUCTS_PER_PAGE = 3;
 
+function setCookie(cname, cvalue, exdays) {
+  var d = new Date();
+  d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+  var expires = "expires=" + d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
 function productToHTML(product) {
   return `  <div class="product-box">
               <div class="media">
@@ -21,14 +28,33 @@ function productToHTML(product) {
                 </div>
                 <ul class="buy-list">
                   <li>
-                    <button type="button" class="btn btn-success btn-format">Comprar ahora</button>
+                    <button type="button" class="btn btn-success btn-format" data-product-id="${
+                      product.productID
+                    }" onclick="buyProductNow(event)">Comprar ahora</button>
                   </li>
                   <li>
-                    <button type="button" class="btn btn-secondary btn-format">Añadir al carrito</button>
+                    <button type="button" class="btn btn-secondary btn-format" data-product-id="${
+                      product.productID
+                    }" onclick="addProductToCart(event)">Añadir al carrito</button>
                   </li>
                 </ul>
               </div>
             </div>`;
+}
+
+function buyProductNow(ev) {
+  setCookie("cart-details", ev.target.getAttribute("data-product-id"));
+}
+
+function addProductToCart(ev) {
+  let currCart = getTokenValue("cart-details");
+  let products = new Set();
+  let currProducts = currCart.split(",");
+  for (let product of currProducts) {
+    products.add(product);
+  }
+  products.add(ev.target.getAttribute("data-product-id"));
+  setCookie("cart-details", Array.from(products).join(","), 2);
 }
 
 function goToProductPage(event) {
