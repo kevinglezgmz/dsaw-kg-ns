@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Agregar producto</title>
+  <title>Editar producto</title>
   <link rel="icon" href="./imgs/carro-de-la-compra.png" />
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -95,10 +95,10 @@
         <input type="number" class="form-control" id="productPrice">
       </div>
       <div class="col-md-4 mb-3">
-        <label for="productPrice">
+        <label for="productID">
           <h5>ID del producto</h5>
         </label>
-        <input type="text" class="form-control" id="productID">
+        <input type="text" class="form-control" id="productID" disabled>
       </div>
     </div>
     <div class="form-group">
@@ -162,14 +162,14 @@
         <option value="Vestidos">Vestidos</option>
       </select>
     </div>
-    <div class="form-group"><button type="button" class="btn btn-success" id="addProduct">
-        <h5>Agregar producto</h5>
+    <div class="form-group"><button type="button" class="btn btn-success" id="editProduct">
+        <h5>Editar producto</h5>
       </button></div>
   </form>
 
   <!-- Optional JavaScript -->
   <script src="js/httprequests.js"></script>
-    <script src="js/addProduct.js"></script>
+    <script src="js/editProduct.js"></script>
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
