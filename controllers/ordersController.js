@@ -1,51 +1,43 @@
 const CloudantSDK = require("@cloudant/cloudant");
 const CLOUDANT_CREDS = require("../localdev-config.json");
 const cloudant = new CloudantSDK(CLOUDANT_CREDS.url);
-const ORDERS_DB = cloudant.db.use("orders");
+const USERS_DB = cloudant.db.use("users");
 
-class OrdersController{
-    async insertOrder(order){
-        let addedOrder = await ORDERS_DB.insert(order);
-        return addedOrder;
+class OrdersController {
+  async insertOrder(user, order) {
+    if (user.orders) {
+      user.orders.push(order);
+    } else {
+      user.orders = [order];
     }
-    async updateOrder(order){
-        let updateStatus = await ORDERS_DB.insert(order);
-        return updateStatus;
+    let addedOrderStatus = await USERS_DB.insert(user);
+    return addedOrderStatus;
+  }
+
+  getAllUserOrders(user) {
+    if (!user.orders) return;
+    let orders = [];
+    for (let userOrder of user.orders) {
+      let order = {
+        orderID: userOrder.orderID,
+        address: userOrder.address,
+        state: userOrder.state,
+        county: userOrder.county,
+        zip: userOrder.zip,
+        products: userOrder.products,
+        total: user.total,
+      };
+      orders.push(order);
     }
-    async deleteOrder(order){
-        let deleteStatus = await ORDERS_DB.destroy(order._id, order._rev);
-        return deleteStatus;
+    return orders;
+  }
+
+  getOrderByID(user, orderID) {
+    if (!user.orders) return;
+    for (let order of user.orders) {
+      if (order.orderID === orderID) return order;
     }
-    async getAllOrders(){
-        let orders = [];
-        let docs = await ORDERS_DB.list({include_docs:true});
-        for(let entry of docs.rows){
-            let order = {
-                orderID: entry.doc.orderID,
-                orderDate: entry.doc.orderDate,
-                products: entry.doc.products,
-                total: entry.doc.total,
-                orderStatus: entry.doc.orderStatus,
-                shippingInfo: entry.doc.shippingInfo,
-                paymentInfo: entry.doc.paymentInfo,
-            }
-            orders.push(order);
-        }
-        return orders;
-    }
-    //async getUserOrders(){}
-    async getOrderByID(orderID){
-        const query = {
-            selector: {
-                orderID: {
-                    $eq: orderID
-                }
-            }
-        }
-        let dbObject = await ORDERS_DB.find(query);
-        let uniqueOrder = dbObject.docs[0];
-        return uniqueOrder;
-    }
-};
+  }
+}
 
 module.exports = OrdersController;
