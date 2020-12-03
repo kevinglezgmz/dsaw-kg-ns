@@ -52,8 +52,8 @@ function goToProductPage(event) {
   let productID;
   for (let ele of event.path) {
     if (ele.getAttribute("data-product-id")) {
-      category = ele.getAttribute("data-product-id");
-      window.location.href = "/product.html?productID=" + category;
+      productID = ele.getAttribute("data-product-id");
+      window.location.href = "/product.html?productID=" + productID;
     }
   }
 }

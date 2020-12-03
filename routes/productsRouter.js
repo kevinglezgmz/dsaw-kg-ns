@@ -14,11 +14,6 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/categories/:category", async (req, res) => {
-  let products = await productCtrlr.getProductsByCategory(req.params.category);
-  res.send(products);
-});
-
 router.get("/:id", async (req, res) => {
   let product = await productCtrlr.getProductByID(parseInt(req.params.id));
   if (product) {

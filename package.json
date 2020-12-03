@@ -13,8 +13,6 @@
     "@cloudant/cloudant": "^4.3.0",
     "bcrypt": "^5.0.0",
     "express": "^4.17.1",
-    "express-session": "^1.17.1",
-    "ibmcloud-appid": "^6.1.1",
-    "passport": "^0.4.1"
+    "jsonwebtoken": "^8.5.1"
   }
 }

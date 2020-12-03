@@ -1,157 +1,226 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>Búsqueda</title>
+    <link rel="icon" href="./imgs/carro-de-la-compra.png" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-<head>
-  <title>Búsqueda</title>
-  <link rel="icon" href="./imgs/carro-de-la-compra.png" />
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <style>
+      .layout-container {
+        padding-left: 2em;
+        display: flex;
+      }
 
-  <style>
-    .pagination {
-      margin: 0.5em 0.5em;
-      width: 100%;
-      text-align: center;
+      .category-box {
+        min-width: 12em;
+        margin: 0.5em 0 0.5em 0;
+      }
 
-    }
+      .media,
+      .col-sm-2 {
+        display: flex;
+        margin: 0.5em 0.5em;
+      }
 
-    .media,
-    .col-sm-2 {
-      margin: 0.5em 0.5em;
-    }
+      .media {
+        align-items: center !important;
+        border-radius: 5px;
+        border: 1px solid rgb(170, 168, 168);
+      }
 
-    #product_img {
-      width: 10%;
-      height: 10%;
-    }
+      .title-tag {
+        padding-top: 0.5em;
+        padding-left: 0.5em;
+      }
 
-    #buyList {
-      list-style: none;
-    }
+      .product-img {
+        width: 6em;
+        height: 10em;
+        margin: 1em;
+      }
 
-    #buyList li {
-      margin: 0.5em 0.5em;
-    }
-  </style>
+      .buy-list {
+        list-style: none;
+      }
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      .buy-list li {
+        margin: 0.5em 0.5em;
+      }
 
-  <script src="https://kit.fontawesome.com/928386cd89.js" crossorigin="anonymous"></script>
-</head>
+      .btn-format {
+        width: 100%;
+      }
 
-<body>
-  <nav class="navbar navbar-expand-md navbar-dark bg-primary">
-    <a class="navbar-brand" href="index.html"><img src="./imgs/carro-de-la-compra.png" alt="LOGO" width="30px" /></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+      @media (max-width: 780px) {
+        .layout-container {
+          width: 100%;
+          display: block;
+          padding-left: 0px;
+        }
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li>
-          <input style="width: 500px" class="form-control mr-sm-2" type="search" placeholder="Buscar artículos..."
-            aria-label="Search" />
-        </li>
-        <!-- <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Dropdown
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </li> -->
-      </ul>
-      <!-- <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form> -->
-      <a class="navbar-brand" style="margin-right: 0" href="orders.html">Pedidos</a>
-      <a class="navbar-brand" href="user.html" style="margin: 0 2em"><img src="./imgs/usuario.png" alt="LOGO"
-          width="30px" /></a>
-      <a class="navbar-brand" href="#"><img src="./imgs/bolsa-de-la-compra.png" alt="LOGO" width="30px" /></a>
-    </div>
-  </nav>
+        .product-img {
+          display: block;
+          margin: auto;
+        }
 
-  <div class="row">
-    <div class="col-sm-2">
-      <p>Aquí van categorias, etc</p>
-    </div>
-    <div class="col-sm-8">
-      <div class="media">
-        <img id="product_img" src="imgs/carro-de-la-compra.png" class="align-self-center mr-3" alt="...">
-        <div class="media-body">
-          <h5 class="mt-0">Nombre del producto</h5>
-          <p>Aquí va toda la descripción</p>
-        </div>
-        <ul id="buyList">
+        .buy-list {
+          padding: 0;
+          text-align: center;
+        }
+
+        .category-box {
+          text-align: center;
+        }
+
+        .media-body {
+          text-align: center;
+        }
+
+        .media {
+          display: block !important;
+          padding-top: 1em;
+        }
+
+        .media-left,
+        .media-right {
+          display: flex;
+          justify-content: center;
+        }
+
+        .btn-format {
+          width: 140px;
+        }
+      }
+    </style>
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <script src="https://kit.fontawesome.com/928386cd89.js" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-primary">
+      <a class="navbar-brand" href="index.html"><img src="./imgs/carro-de-la-compra.png" alt="LOGO" width="30px" /></a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
           <li>
-            <button type="button" class="btn btn-success">Comprar ahora</button>
-          </li>
-          <li>
-            <button type="button" class="btn btn-secondary">Añadir al carrito</button>
+            <input
+              style="width: 500px"
+              class="form-control mr-sm-2"
+              type="search"
+              placeholder="Buscar artículos..."
+              aria-label="Search"
+              id="inputSearch"
+            />
           </li>
         </ul>
+        <a class="navbar-brand" style="margin-right: 0" href="orders.html">Pedidos</a>
+        <a class="navbar-brand" href="user.html" style="margin: 0 2em"
+          ><img src="./imgs/usuario.png" alt="LOGO" width="30px"
+        /></a>
+        <a class="navbar-brand" href="#"><img src="./imgs/bolsa-de-la-compra.png" alt="LOGO" width="30px" /></a>
       </div>
-      <hr />
+    </nav>
+
+    <h2 class="title-tag">Resultados</h2>
+    <div class="layout-container">
+      <div class="category-box">
+        <h5>Buscar por categoría</h5>
+        <form>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="todos" value="option1" />
+            <label class="form-check-label" for="todos"> Todos </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="Abrigos" value="option1" />
+            <label class="form-check-label" for="Abrigos"> Abrigos </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="Accesorios" value="option1" />
+            <label class="form-check-label" for="Accesorios"> Accesorios </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="Blusas" value="option1" />
+            <label class="form-check-label" for="Blusas"> Blusas </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="Camisas" value="option1" />
+            <label class="form-check-label" for="Camisas"> Camisas </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="Pijamas" value="option1" />
+            <label class="form-check-label" for="Pijamas"> Pijamas </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="Ropa deportiva" value="option1" />
+            <label class="form-check-label" for="Ropa deportiva"> Ropa deportiva </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="Vestidos" value="option1" />
+            <label class="form-check-label" for="Vestidos"> Vestidos </label>
+          </div>
+        </form>
+      </div>
+      <div class="products-container" id="productList"></div>
     </div>
-  </div>
 
-  <nav aria-label="...">
-    <ul class="pagination justify-content-center">
-      <li class="page-item disabled">
-        <span class="page-link">Previous</span>
-      </li>
-      <li class="page-item active"><a class="page-link" href="#">1</a></li>
-      <li class="page-item" aria-current="page">
-        <span class="page-link">
-          2
-          <span class="sr-only">(current)</span>
-        </span>
-      </li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item">
-        <a class="page-link" href="#">Next</a>
-      </li>
-    </ul>
-  </nav>
+    <nav aria-label="Page navigation">
+      <ul class="pagination justify-content-center" id="pagesList">
+        <li class="page-item"><a class="page-link" onclick="event.preventDefault()" href="#">Previous</a></li>
+        <li class="page-item active"><a class="page-link" onclick="event.preventDefault()" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" onclick="event.preventDefault()" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" onclick="event.preventDefault()" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" onclick="event.preventDefault()" href="#">Next</a></li>
+      </ul>
+    </nav>
 
-  <footer class="pt-4 my-md-5 pt-md-5 border-top">
-    <div style="text-align: center; width: 100%">
-      <i class="footer-icon fab fa-twitter fa-3x"></i>
-      <i class="footer-icon fab fa-facebook fa-3x"></i>
-      <i class="footer-icon fab fa-instagram fa-3x"></i>
-      <p></p>
-      <p>Información de la pagina <i class="fa fa-registered" aria-hidden="true"></i></p>
-    </div>
-  </footer>
-  <!-- Optional JavaScript -->
-  <script src="js/httprequests.js"></script>
-  <script src="js/productSearch.js"></script>
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-  </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-  </script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-  </script>
-</body>
-
+    <footer class="pt-4 my-md-5 pt-md-5 border-top">
+      <div style="text-align: center; width: 100%">
+        <i class="footer-icon fab fa-twitter fa-3x"></i>
+        <i class="footer-icon fab fa-facebook fa-3x"></i>
+        <i class="footer-icon fab fa-instagram fa-3x"></i>
+        <p></p>
+        <p>Información de la pagina <i class="fa fa-registered" aria-hidden="true"></i></p>
+      </div>
+    </footer>
+    <!-- Optional JavaScript -->
+    <script src="js/httprequests.js"></script>
+    <script src="js/productSearch.js"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
