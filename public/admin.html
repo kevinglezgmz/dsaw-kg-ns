@@ -1,90 +1,86 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>Administrar Tienda</title>
+    <link rel="icon" href="./imgs/carro-de-la-compra.png" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-<head>
-  <title>Administrar Tienda</title>
-  <link rel="icon" href="./imgs/carro-de-la-compra.png" />
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+      integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    
+    <style>
+      .media {
+        border: 1px solid #d5dbdd;
+        padding: 5px 20px;
+        border-radius: 5px;
+        box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.04);
+        background: #fff;
+        margin: 2%;
+      }
 
-  <style>
-    .media {
-      border: 1px solid #d5dbdd;
-      padding: 5px 20px;
-      border-radius: 5px;
-      box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.04);
-      background: #fff;
-      margin: 2%;
-    }
+      #modelo img {
+        height: 120px;
+        width: 120px;
+      }
+      
+      #product_img {
+        width: 10%;
+        height: 10%;
+      }
 
-    #modelo img {
-      height: 120px;
-      width: 120px;
-    }
+      .media-right {
+        margin: 3%;
+      }
+    </style>
 
-    .media-right {
-      margin: 3%;
-    }
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-primary">
+      <a class="navbar-brand" href="index.html"><img src="./imgs/carro-de-la-compra.png" alt="LOGO" width="30px" /></a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    #product_img {
-      width: 10%;
-      height: 10%;
-    }
-  </style>
-
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
-    integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-</head>
-
-<body>
-  <nav class="navbar navbar-expand-md navbar-dark bg-primary">
-    <a class="navbar-brand" href="index.html"><img src="./imgs/carro-de-la-compra.png" alt="LOGO" width="30px" /></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li>
-          <input style="width: 500px" class="form-control mr-sm-2" type="search" placeholder="Buscar artículos..."
-            aria-label="Search" />
-        </li>
-        <!-- <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Dropdown
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </li> -->
-      </ul>
-      <!-- <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form> -->
-      <a class="navbar-brand" style="margin-right: 0" href="orders.html">Pedidos</a>
-      <a class="navbar-brand" href="user.html" style="margin: 0 2em"><img src="./imgs/usuario.png" alt="LOGO"
-          width="30px" /></a>
-      <a class="navbar-brand" href="#"><img src="./imgs/bolsa-de-la-compra.png" alt="LOGO" width="30px" /></a>
-    </div>
-  </nav>
-
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li>
+            <input
+              style="width: 500px"
+              class="form-control mr-sm-2"
+              type="search"
+              placeholder="Buscar artículos..."
+              aria-label="Search"
+            />
+          </li>
+        </ul>
+        <a class="navbar-brand" style="margin-right: 0" href="orders.html">Pedidos</a>
+        <a class="navbar-brand" href="user.html" style="margin: 0 2em"
+          ><img src="./imgs/usuario.png" alt="LOGO" width="30px"
+        /></a>
+        <a class="navbar-brand" href="#"><img src="./imgs/bolsa-de-la-compra.png" alt="LOGO" width="30px" /></a>
+      </div>
+    </nav>
   <div class="col-6 mt-2">
     <a class="btn btn-success" href="./addProduct.html" role="button">Agregar nuevo producto</a>
   </div>
@@ -112,8 +108,7 @@
       </div>
     </div>
   </div>
-  
-
+ 
   <nav aria-label="...">
     <ul class="pagination justify-content-center">
       <li class="page-item disabled">
@@ -133,16 +128,17 @@
     </ul>
   </nav>
 
-  <footer class="pt-4 my-md-5 pt-md-5 border-top">
-    <div style="text-align: center; width: 100%">
-      <i class="footer-icon fab fa-twitter fa-3x"></i>
-      <i class="footer-icon fab fa-facebook fa-3x"></i>
-      <i class="footer-icon fab fa-instagram fa-3x"></i>
-      <p></p>
-      <p>Información de la pagina <i class="fa fa-registered" aria-hidden="true"></i></p>
-    </div>
-  </footer>
 
+
+    <footer class="pt-4 my-md-5 pt-md-5 border-top">
+      <div style="text-align: center; width: 100%">
+        <i class="footer-icon fab fa-twitter fa-3x"></i>
+        <i class="footer-icon fab fa-facebook fa-3x"></i>
+        <i class="footer-icon fab fa-instagram fa-3x"></i>
+        <p></p>
+        <p>Información de la pagina <i class="fa fa-registered" aria-hidden="true"></i></p>
+      </div>
+    </footer>
   <div class="modal fade" id="deleteFormModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -177,6 +173,5 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
   </script>
-</body>
-
+  </body>
 </html>

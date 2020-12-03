@@ -5,7 +5,7 @@ const PORT = process.env.PORT || 3000;
 const productRouter = require("./routes/productsRouter.js");
 const userRouter = require("./routes/usersRouter.js");
 const orderRouter = require("./routes/ordersRouter.js");
-const loginRouter = require("./routes/loginRouter");
+const loginRouter = require("./routes/loginRouter.js");
 
 app.use(express.static(__dirname + "/public"));
 app.use(express.json());
