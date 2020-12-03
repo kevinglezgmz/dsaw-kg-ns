@@ -43,4 +43,60 @@ function handleFormUpdate(event) {
   return false;
 }
 
-document.addEventListener("DOMContentLoaded", () => {});
+function userToForm(product) {
+  let email = getTokenValue("user-email");
+  url = "/api/users/" + email;
+  sendHTTPRequest(url, "", HTTPMethods.get, (data) => {
+    let user = JSON.parse(data.data);
+    $("#inputName").val(user.name);
+    $("#inputSurnames").val(user.lastName);
+  })
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  userToForm();
+
+  $("#inputName").on("keydown", (event) => {
+    let name = $("#inputName").val();
+    if (name === "") {
+      $("#inputName").removeClass('is-valid');
+      $("#inputName").addClass('is-invalid');
+    } else if (name !== "" && $("#inputName").hasClass("is-invalid")) {
+      $("#inputName").removeClass("is-invalid");
+      $("#inputName").addClass("is-valid");
+    }
+  })
+
+  $("#inputSurnames").on("keydown", (event) => {
+    let surnames = $("#inputSurnames").val();
+    if (surnames === "") {
+      $("#inputSurnames").removeClass('is-valid');
+      $("#inputSurnames").addClass('is-invalid');
+    } else if (surnames !== "" && $("#inputSurnames").hasClass("is-invalid")) {
+      $("#inputSurnames").removeClass("is-invalid");
+      $("#inputSurnames").addClass("is-valid");
+    }
+  })
+
+  $("#inputPassword").on("keydown", (event) => {
+    let password = $("#inputPassword").val();
+    if (password === "") {
+      $("#inputPassword").removeClass('is-valid');
+      $("#inputPassword").addClass('is-invalid');
+    } else if (password !== "" && $("#inputPassword").hasClass("is-invalid")) {
+      $("#inputPassword").removeClass("is-invalid");
+      $("#inputPassword").addClass("is-valid");
+    }
+  })
+
+  $("#inputConfirmPassword").on("keydown", (event) => {
+    let confirmPassword = $("#inputConfirmPassword").val();
+    if (confirmPassword === "") {
+      $("#inputConfirmPassword").removeClass('is-valid');
+      $("#inputConfirmPassword").addClass('is-invalid');
+    } else if (confirmPassword !== "" && $("#inputConfirmPassword").hasClass("is-invalid")) {
+      $("#inputConfirmPassword").removeClass("is-invalid");
+      $("#inputConfirmPassword").addClass("is-valid");
+    }
+  })
+});

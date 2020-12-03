@@ -51,7 +51,7 @@ router.put("/:id", async (req, res) => {
 });
 
 router.delete("/:id", async (req, res) => {
-  let product = await productCtrlr.getProductByID(req.params.id);
+  let product = await productCtrlr.getProductByID(parseInt(req.params.id));
   res.set("Content-Type", "application/json");
   if (product) {
     let deleteStatus = await productCtrlr.deleteProduct(product);

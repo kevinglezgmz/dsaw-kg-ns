@@ -80,32 +80,41 @@
 
   <div id="responseMSG"></div>
 
-  <form>
+  <form id="editForm">
     <div class="form-row">
       <div class="col-md-4 mb-3">
         <label for="productName">
           <h5>Nombre del Producto</h5>
         </label>
-        <input type="text" class="form-control" id="productName">
+        <input type="text" class="form-control is-valid" id="productName" required>
+        <div class="invalid-feedback">
+          Añade el nombre del producto
+        </div>
       </div>
       <div class="col-md-4 mb-3">
         <label for="productPrice">
           <h5>Precio</h5>
         </label>
-        <input type="number" class="form-control" id="productPrice">
+        <input type="number" class="form-control is-valid" id="productPrice">
+        <div class="invalid-feedback">
+          Añade el precio
+        </div>
       </div>
       <div class="col-md-4 mb-3">
         <label for="productID">
           <h5>ID del producto</h5>
         </label>
-        <input type="text" class="form-control" id="productID" disabled>
+        <input type="text" class="form-control is-valid" id="productID" disabled>
       </div>
     </div>
     <div class="form-group">
       <label for="productDescription">
         <h5>Descripción</h5>
       </label>
-      <textarea class="form-control" id="productDescription" rows="3"></textarea>
+      <textarea class="form-control is-valid" id="productDescription" rows="3"></textarea>
+      <div class="invalid-feedback">
+        Añade una descripción
+      </div>
     </div>
 
     <div class="form-check">
@@ -140,13 +149,19 @@
       <label for="productImg">
         <h5>Imagen(es) del producto</h5>
       </label>
-      <input type="text" class="form-control" id="productImg">
+      <input type="text" class="form-control is-valid" id="productImg">
+      <div class="invalid-feedback">
+        Añade el la(s) imagen(es)
+      </div>
     </div>
     <div class="form-group">
-      <label for="addColor">
+      <label for="productColor">
         <h5>Colores</h5>
       </label>
-      <input type="text" class="form-control mb-2 mr-sm-2" id="productColor" placeholder="#00000F">
+      <input type="text" class="form-control mb-2 mr-sm-2 is-valid" id="productColor" placeholder="#00000F">
+      <div class="invalid-feedback">
+        Añade color(es)
+      </div>
     </div>
     <div class="form-group">
       <label for="category">
