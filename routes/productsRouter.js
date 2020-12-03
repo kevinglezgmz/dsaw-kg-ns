@@ -5,8 +5,8 @@ const productCtrlr = new productsController();
 const router = express();
 
 router.get("/", async (req, res) => {
-  if (req.query.name) {
-    let products = await productCtrlr.getProductsByNameOrDescription(req.query.name);
+  if (req.query.name || req.query.category) {
+    let products = await productCtrlr.getProductsByNameOrDescription(req.query.name, req.query.category);
     res.send(products);
   } else {
     let products = await productCtrlr.getAllProducts();
@@ -20,7 +20,7 @@ router.get("/categories/:category", async (req, res) => {
 });
 
 router.get("/:id", async (req, res) => {
-  let product = await productCtrlr.getProductByID(req.params.id);
+  let product = await productCtrlr.getProductByID(parseInt(req.params.id));
   if (product) {
     delete product["_id"];
     delete product["_rev"];
