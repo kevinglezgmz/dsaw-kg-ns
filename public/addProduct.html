@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Agregar artículo</title>
+  <title>Agregar producto</title>
   <link rel="icon" href="./imgs/carro-de-la-compra.png" />
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -78,60 +78,80 @@
     </div>
   </nav>
 
+  <div id="responseMSG"></div>
+
   <form>
     <div class="form-row">
-      <div class="col-md-6 mb-3">
-        <label for="productName"><h5>Nombre del Producto</h5></label>
+      <div class="col-md-4 mb-3">
+        <label for="productName">
+          <h5>Nombre del Producto</h5>
+        </label>
         <input type="text" class="form-control" id="productName">
       </div>
-      <div class="col-md-6 mb-3">
-        <label for="productPrice"><h5>Precio</h5></label>
+      <div class="col-md-4 mb-3">
+        <label for="productPrice">
+          <h5>Precio</h5>
+        </label>
         <input type="number" class="form-control" id="productPrice">
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="productPrice">
+          <h5>ID del producto</h5>
+        </label>
+        <input type="text" class="form-control" id="productID">
       </div>
     </div>
     <div class="form-group">
-      <label for="productDescription"><h5>Descripción</h5></label>
+      <label for="productDescription">
+        <h5>Descripción</h5>
+      </label>
       <textarea class="form-control" id="productDescription" rows="3"></textarea>
     </div>
 
     <div class="form-check">
       <h5>Tallas disponibles</h5>
-      <label class="form-check-label checkbox-inline" for="xch">
-        <input class="form-check-input" type="checkbox" value="" id="xch">
-        XCH
+      <label class="form-check-label checkbox-inline" for="ECH">
+        <input class="form-check-input" type="checkbox" value="" id="ECH">
+        ECH
       </label>
 
-      <label class="form-check-label checkbox-inline" for="ch">
-        <input class="form-check-input" type="checkbox" value="" id="ch">
+      <label class="form-check-label checkbox-inline" for="CH">
+        <input class="form-check-input" type="checkbox" value="" id="CH">
         CH
       </label>
 
-      <label class="form-check-label checkbox-inline" for="m">
-        <input class="form-check-input" type="checkbox" value="" id="m">
+      <label class="form-check-label checkbox-inline" for="M">
+        <input class="form-check-input" type="checkbox" value="" id="M">
         M
       </label>
 
-      <label class="form-check-label checkbox-inline" for="g">
-        <input class="form-check-input" type="checkbox" value="" id="g">
+      <label class="form-check-label checkbox-inline" for="G">
+        <input class="form-check-input" type="checkbox" value="" id="G">
         G
       </label>
 
-      <label class="form-check-label checkbox-inline" for="exg">
-        <input class="form-check-input" type="checkbox" value="" id="exg">
-        EXG
+      <label class="form-check-label checkbox-inline" for="XG">
+        <input class="form-check-input" type="checkbox" value="" id="XG">
+        XG
       </label>
     </div>
 
     <div class="form-group">
-      <label for="productImg"><h5>Imagen del producto</h5></label>
-      <input type="file" class="form-control-file" id="productImg">
+      <label for="productImg">
+        <h5>Imagen(es) del producto</h5>
+      </label>
+      <input type="text" class="form-control" id="productImg">
     </div>
     <div class="form-group">
-      <label for="addColor"><h5>Colores</h5></label>
-      <input type="text" class="form-control mb-2 mr-sm-2" id="addColor" placeholder="#00000F">
+      <label for="addColor">
+        <h5>Colores</h5>
+      </label>
+      <input type="text" class="form-control mb-2 mr-sm-2" id="productColor" placeholder="#00000F">
     </div>
     <div class="form-group">
-      <label for="category"><h5>Categoría</h5></label>
+      <label for="category">
+        <h5>Categoría</h5>
+      </label>
       <select class="custom-select" id="category">
         <option value="Abrigos" selected>Abrigos</option>
         <option value="Accesorios">Accesorios</option>
@@ -142,11 +162,14 @@
         <option value="Vestidos">Vestidos</option>
       </select>
     </div>
-    <div class="form-group"><button type="button" class="btn btn-success" id="addProduct"><h5>Agregar nuevo
-        producto</h5></button></div>
+    <div class="form-group"><button type="button" class="btn btn-success" id="addProduct">
+        <h5>Agregar producto</h5>
+      </button></div>
   </form>
 
   <!-- Optional JavaScript -->
+  <script src="js/httprequests.js"></script>
+    <script src="js/addProduct.js"></script>
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
