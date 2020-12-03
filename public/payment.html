@@ -75,7 +75,7 @@
             <label for="address">Dirección</label>
             <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
             <div class="invalid-feedback">
-              Por favor, ingresa la dirección de envío
+              Ingresa la dirección de envío
             </div>
           </div>
           <div class="row">
@@ -86,7 +86,7 @@
                 <option>Jalisco</option>
               </select>
               <div class="invalid-feedback">
-                Por favor, selecciona un estado válido
+                Selecciona un estado
               </div>
             </div>
             <div class="col-md-4 mb-3">
@@ -96,12 +96,12 @@
                 <option>Guadalajara</option>
               </select>
               <div class="invalid-feedback">
-                Por favor, selecciona un municipio válido
+                Selecciona un municipio válido
               </div>
             </div>
             <div class="col-md-3 mb-3">
               <label for="zip">C.P.</label>
-              <input type="text" class="form-control" id="zip" placeholder="" required>
+              <input type="number" class="form-control" id="zip" placeholder="" required>
               <div class="invalid-feedback">
                 Código postal requerido.
               </div>
@@ -123,14 +123,14 @@
               <input type="text" class="form-control" id="cc-name" placeholder="" required>
               <small class="text-muted">Nombre como se muestra en la tarjeta</small>
               <div class="invalid-feedback">
-                El nombre es requerido
+                Ingresa el nombre
               </div>
             </div>
             <div class="col-md-6 mb-3">
               <label for="cc-number">Número de la tarjeta</label>
-              <input type="text" class="form-control" id="cc-number" placeholder="" required>
+              <input type="number" class="form-control" id="cc-number" placeholder="" required>
               <div class="invalid-feedback">
-                El número de la tarjeta es requerido
+                Ingresa el número de tarjeta
               </div>
             </div>
           </div>
@@ -139,14 +139,15 @@
               <label for="cc-expiration">Fecha de expiración</label>
               <input type="text" class="form-control" id="cc-expiration" placeholder="12/12" required>
               <div class="invalid-feedback">
-                La fecha de expiración es requerida
+                Ingresa la fecha de expiración
               </div>
             </div>
             <div class="col-md-3 mb-3">
               <label for="cc-cvv">Código de seguridad</label>
               <input type="text" class="form-control" id="cc-cvv" placeholder="CVV" required>
+              <input type="number" class="form-control" id="cc-cvv" placeholder="CVV" required>
               <div class="invalid-feedback">
-                El código de seguridad es requerido
+                Ingresa el código de seguridad
               </div>
             </div>
           </div>
