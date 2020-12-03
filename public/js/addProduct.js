@@ -23,7 +23,6 @@ function addProduct(ele) {
   sendHTTPRequest(url, JSON.stringify(ele), HTTPMethods.post, (data) => {
     document.getElementById("responseMSG").innerHTML = `<div class="alert alert-success">Producto agregado</div>`;
   }, (error) => {
-    console.log(error);
     document.getElementById("responseMSG").innerHTML = `<div class="alert alert-danger">` + error + "</div>";
   })
 }

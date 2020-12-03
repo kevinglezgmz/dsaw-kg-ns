@@ -20,9 +20,7 @@ function handleFormLogin(event) {
       setCookie("user-email", email, 2);
       window.location.replace("/");
     },
-    (err) => {
-      console.log(err);
-    }
+    (err) => {}
   );
   return false;
 }

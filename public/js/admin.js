@@ -41,9 +41,7 @@ function getProducts() {
 
 function deleteProduct(ele) {
   let productID = ele.getAttribute('data-id');
-  //Enviar DELETE request
   let url = '/product/' + productID;
-  //console.log(url);
   sendHTTPRequest(url, "", HTTTPMethods.delete, (data) => {
     document.getElementById("responseMSG").innerHTML = '<div class="alert alert-success">Producto eliminado</div>';
   }, (error) => {

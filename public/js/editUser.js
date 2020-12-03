@@ -32,12 +32,8 @@ function handleFormUpdate(event) {
       "/api/users/" + email,
       updatee,
       HTTPMethods.put,
-      (response) => {
-        console.log(response);
-      },
-      (error) => {
-        console.log(error);
-      }
+      (response) => {},
+      (error) => {}
     );
   }
   return false;

@@ -52,7 +52,6 @@ function updateProduct(ele) {
   sendHTTPRequest(url, JSON.stringify(ele), HTTPMethods.put, (data) => {
     document.getElementById("responseMSG").innerHTML = '<div class="alert alert-success">Producto actualizado</div>';
   }, (error) => {
-    console.log(error);
     document.getElementById("responseMSG").innerHTML = `<div class="alert alert-danger">` + error + '</div>';
   })
 }
