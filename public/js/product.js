@@ -1,22 +1,18 @@
 const APIURL = window.location.protocol + '//' + window.location.host + '/api';
 
 function addProductImgs(imgs) {
-  //console.log(imgs);
   if (imgs.length === 1) {
     return `<div class="tab-pane active" id="pic-1"><img src="${imgs[0]}" /></div>`
   }
   let imgsHTML = `<div class="tab-pane active" id="pic-1"><img src="${imgs[0]}" /></div>`;
   for (let i = 1; i < imgs.length; i++) {
-    //console.log(imgs[i])
     imgsHTML += `<div class="tab-pane" id="pic-${i+1}"><img src="${imgs[i]}" /></div>`;
   }
-  //console.log(imgsHTML);
   return imgsHTML;
 }
 
 function addImgsButton(imgs) {
   if (imgs.length === 1) {
-    //console.log("len 1");
     return `<li class="active">
     <a data-target="#pic-1" data-toggle="tab"><img src="${imgs[0]}" /></a>
   </li>`
@@ -25,7 +21,6 @@ function addImgsButton(imgs) {
   <a data-target="#pic-1" data-toggle="tab"><img src="${imgs[0]}" /></a>
 </li>`
   for (let i = 1; i < imgs.length; i++) {
-    console.log(imgs[i])
     btnHTML += `<li>
   <a data-target="#pic-${i+1}" data-toggle="tab"><img src="${imgs[i]}" /></a>
 </li>`
@@ -111,19 +106,15 @@ const productToHTML = (product) => {
 
 const productListToHTML = (list, id) => {
   if (id && list && document.getElementById(id)) {
-    //console.log(list);
     document.getElementById(id).innerHTML = list.map(productToHTML).join(' ');
   }
 }
 
 function getProduct() {
   let urlParams = new URLSearchParams(window.location.search);
-  //console.log(urlParams);
   let productID = urlParams.get('productID');
-  //console.log(productID);
   let url = '/api/products/' + productID
   sendHTTPRequest(url, '', HTTPMethods.get, (data) => {
-    //console.log(data);
     let product = JSON.parse(data.data);
     let productList = [];
     productList.push(product);
@@ -134,6 +125,5 @@ function getProduct() {
 }
 
 document.addEventListener("DOMContentLoaded", function(){
-  //console.log('getprods');
   getProduct();
 })

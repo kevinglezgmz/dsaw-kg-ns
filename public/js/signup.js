@@ -8,7 +8,6 @@ function verifyLoggedUser() {
       window.location.replace("/");
     },
     (err) => {
-      console.log(err);
     }
   );
 }
@@ -52,14 +51,10 @@ function handleFormSignUp(event) {
             setCookie("user-email", email, 2);
             window.location.replace("/");
           },
-          (err) => {
-            console.log(err);
-          }
+          (err) => {}
         );
       },
-      (err) => {
-        console.log(err);
-      }
+      (err) => {}
     );
   }
 
