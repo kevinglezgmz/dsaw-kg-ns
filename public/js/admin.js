@@ -41,10 +41,11 @@ function getProducts() {
 
 function deleteProduct(ele) {
   let productID = ele.getAttribute('data-id');
-  let url = '/product/' + productID;
-  sendHTTPRequest(url, "", HTTTPMethods.delete, (data) => {
-    document.getElementById("responseMSG").innerHTML = '<div class="alert alert-success">Producto eliminado</div>';
+  let url = '/api/products/' + productID;
+  sendHTTPRequest(url, "", HTTPMethods.delete, (data) => {
+    getProducts();
   }, (error) => {
+    console.log(error);
     document.getElementById("responseMSG").innerHTML = '<div class="alert alert-danger">' + error + '</div>';
   })
 }
