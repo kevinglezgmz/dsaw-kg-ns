@@ -1,36 +1,47 @@
-const APIURL = window.location.protocol + '//' + window.location.host + '/api';
+const APIURL = window.location.protocol + "//" + window.location.host + "/api";
+
+function addProductToCart(ev) {
+  let currCart = getTokenValue("cart-details");
+  let products = new Set();
+  let currProducts = currCart.split(",");
+  for (let product of currProducts) {
+    products.add(product);
+  }
+  products.add(ev.target.getAttribute("data-product-id"));
+  setCookie("cart-details", Array.from(products).join(","), 2);
+}
 
 function addProductImgs(imgs) {
   if (imgs.length === 1) {
-    return `<div class="tab-pane active" id="pic-1"><img src="${imgs[0]}" /></div>`
+    return `<div class="tab-pane active" id="pic-1"><img class="main-image" src="${imgs[0]}" /></div>`;
   }
-  let imgsHTML = `<div class="tab-pane active" id="pic-1"><img src="${imgs[0]}" /></div>`;
+  let imgsHTML = `<div class="tab-pane active" id="pic-1"><img class="main-image" src="${imgs[0]}" /></div>`;
   for (let i = 1; i < imgs.length; i++) {
-    imgsHTML += `<div class="tab-pane" id="pic-${i+1}"><img src="${imgs[i]}" /></div>`;
+    imgsHTML += `<div class="tab-pane" id="pic-${i + 1}"><img class="main-image" src="${imgs[i]}" /></div>`;
   }
   return imgsHTML;
 }
 
 function addImgsButton(imgs) {
   if (imgs.length === 1) {
-    return `<li class="active">
-    <a data-target="#pic-1" data-toggle="tab"><img src="${imgs[0]}" /></a>
-  </li>`
+    return `<li>
+    <a data-target="#pic-1" data-toggle="tab"><img class="secondary-image" src="${imgs[0]}" /></a>
+  </li>`;
   }
-  let btnHTML = `<li class="active">
-  <a data-target="#pic-1" data-toggle="tab"><img src="${imgs[0]}" /></a>
-</li>`
+  let btnHTML = `<li>
+  <a data-target="#pic-1" data-toggle="tab"><img class="secondary-image" src="${imgs[0]}" /></a>
+</li>`;
   for (let i = 1; i < imgs.length; i++) {
     btnHTML += `<li>
-  <a data-target="#pic-${i+1}" data-toggle="tab"><img src="${imgs[i]}" /></a>
-</li>`
+  <a data-target="#pic-${i + 1}" data-toggle="tab"><img class="secondary-image" src="${imgs[i]}" /></a>
+</li>`;
   }
   return btnHTML;
 }
 
 function addStars(score) {
-  let roudedScore = Math.round(score)
-  let starsHTML = '';
+  let roudedScore = Math.round(score);
+  let starsHTML = "";
   for (let i = 0; i < roudedScore; i++) {
     starsHTML += `<span class="fa fa-star checked"></span>`;
   }
@@ -41,17 +52,17 @@ function addStars(score) {
 }
 
 function addColors(colors) {
-  let colorsHTML = '';
+  let colorsHTML = "";
   for (let i = 0; i < colors.length; i++) {
-    colorsHTML += `<span class="color" style="background-color:${colors[i]};"></span>`
+    colorsHTML += `<span class="color" style="background-color:${colors[i]};"></span>`;
   }
-  return colorsHTML
+  return colorsHTML;
 }
 
 function addSizes(sizes) {
-  let sizesHTML = '';
+  let sizesHTML = "";
   for (let i = 0; i < sizes.length; i++) {
-    sizesHTML += `<span class="size" data-toggle="tooltip" title="${sizes[i]}">${sizes[i]}</span>`
+    sizesHTML += `<span class="size" data-toggle="tooltip" title="${sizes[i]}">${sizes[i]}</span>`;
   }
   return sizesHTML;
 }
@@ -84,8 +95,10 @@ const productToHTML = (product) => {
             <p class="product-description">
               ${product.description}
             </p>
-            <h4 class="price">Precio: <span>${'$'+product.price}</span></h4>
-            <p class="vote"><strong>${product.like_ratio+'%'}</strong> de los compradores les gustó este producto! <strong>(${product.voters} votos)</strong></p>
+            <h4 class="price">Precio: <span>${"$" + product.price}</span></h4>
+            <p class="vote"><strong>${
+              product.like_ratio + "%"
+            }</strong> de los compradores les gustó este producto! <strong>(${product.voters} votos)</strong></p>
             <h5 class="sizes">
               Tallas:
               ${sizesHTML}
@@ -95,35 +108,49 @@ const productToHTML = (product) => {
               ${colorsHTML}
               </h5>
             <div class="action">
-              <button class="add-to-cart btn btn-default" type="button" id="addToCart">Añadir al carrito</button>
+              <button class="add-to-cart btn btn-default" type="button" id="addToCart" 
+              data-product-id="${product.productID}" onclick="addProductToCart(event)">Añadir al carrito</button>
               <button class="like btn btn-default" type="button" id="liked"><span class="fa fa-heart"></span></button>
             </div>
           </div>
         </div>
       </div>
-    </div>`
-}
+    </div>`;
+};
 
 const productListToHTML = (list, id) => {
   if (id && list && document.getElementById(id)) {
-    document.getElementById(id).innerHTML = list.map(productToHTML).join(' ');
+    document.getElementById(id).innerHTML = list.map(productToHTML).join(" ");
   }
-}
+};
 
 function getProduct() {
   let urlParams = new URLSearchParams(window.location.search);
-  let productID = urlParams.get('productID');
-  let url = '/api/products/' + productID
-  sendHTTPRequest(url, '', HTTPMethods.get, (data) => {
-    let product = JSON.parse(data.data);
-    let productList = [];
-    productList.push(product);
-    productListToHTML(productList, 'product');
-  }, (error)=>{
-    document.getElementById("responseMSG").innerHTML = '<div class="alert alert-danger">' + error + '</div>';
-  })
+  let productID = urlParams.get("productID");
+  let url = "/api/products/" + productID;
+  sendHTTPRequest(
+    url,
+    "",
+    HTTPMethods.get,
+    (data) => {
+      let product = JSON.parse(data.data);
+      let productList = [];
+      productList.push(product);
+      productListToHTML(productList, "product");
+    },
+    (error) => {
+      document.getElementById("responseMSG").innerHTML = '<div class="alert alert-danger">' + error + "</div>";
+    }
+  );
 }
 
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", function () {
   getProduct();
-})
+
+  let inputSearch = document.getElementById("inputSearch");
+  inputSearch.addEventListener("keydown", (ev) => {
+    if (ev.key === "Enter") {
+      window.location.replace("/productSearch.html?name=" + inputSearch.value);
+    }
+  });
+});

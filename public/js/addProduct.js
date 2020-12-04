@@ -20,24 +20,30 @@ function getSizes() {
 
 function addProduct(ele) {
   let url = "/api/products/";
-  sendHTTPRequest(url, JSON.stringify(ele), HTTPMethods.post, (data) => {
-    document.getElementById("responseMSG").innerHTML = `<div class="alert alert-success">Producto agregado</div>`;
-  }, (error) => {
-    document.getElementById("responseMSG").innerHTML = `<div class="alert alert-danger">` + error + "</div>";
-  })
+  sendHTTPRequest(
+    url,
+    JSON.stringify(ele),
+    HTTPMethods.post,
+    (data) => {
+      document.getElementById("responseMSG").innerHTML = `<div class="alert alert-success">Producto agregado</div>`;
+    },
+    (error) => {
+      document.getElementById("responseMSG").innerHTML = `<div class="alert alert-danger">` + error + "</div>";
+    }
+  );
 }
 
 document.addEventListener("DOMContentLoaded", function () {
   $("#productName").on("keydown", (event) => {
     let name = $("#productName").val();
     if (name === "") {
-      $("#productName").removeClass('is-valid');
-      $("#productName").addClass('is-invalid');
+      $("#productName").removeClass("is-valid");
+      $("#productName").addClass("is-invalid");
     } else if (name !== "" && $("#productName").hasClass("is-invalid")) {
       $("#productName").removeClass("is-invalid");
       $("#productName").addClass("is-valid");
     }
-  })
+  });
 
   $("#productPrice").on("keydown", (event) => {
     let price = $("#productPrice").val();
@@ -48,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
       $("#productPrice").removeClass("is-invalid");
       $("#productPrice").addClass("is-valid");
     }
-  })
+  });
 
   $("#productID").on("keydown", (event) => {
     let id = $("#productID").val();
@@ -59,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
       $("#productID").removeClass("is-invalid");
       $("#productID").addClass("is-valid");
     }
-  })
+  });
 
   $("#productDescription").on("keydown", (event) => {
     let description = $("#productDescription").val();
@@ -70,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
       $("#productDescription").removeClass("is-invalid");
       $("#productDescription").addClass("is-valid");
     }
-  })
+  });
 
   $("#productImg").on("keydown", (event) => {
     let img = $("#productImg").val();
@@ -81,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
       $("#productImg").removeClass("is-invalid");
       $("#productImg").addClass("is-valid");
     }
-  })
+  });
 
   $("#productColor").on("keydown", (event) => {
     let color = $("#productColor").val();
@@ -92,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
       $("#productColor").removeClass("is-invalid");
       $("#productColor").addClass("is-valid");
     }
-  })
+  });
 
   $("#addProduct").on("click", () => {
     let name = $("#productName").val();
@@ -103,16 +109,24 @@ document.addEventListener("DOMContentLoaded", function () {
     let colors = $("#productColor").val().split(",");
     let category = $("#category").val();
 
-    if ($("#productName").hasClass("is-invalid") || $("#productPrice").hasClass("is-invalid") ||
-      $("#productDescription").hasClass("is-invalid") || $("#productImg").hasClass("is-invalid") ||
-      $("#productColor").hasClass("is-invalid") || $("#productName").val() === "" || $("#productPrice").val() === "" ||
-      $("#productDescription").val() === "" || $("#productImg").val() === "" || $("#productColor").val() === "") {
+    if (
+      $("#productName").hasClass("is-invalid") ||
+      $("#productPrice").hasClass("is-invalid") ||
+      $("#productDescription").hasClass("is-invalid") ||
+      $("#productImg").hasClass("is-invalid") ||
+      $("#productColor").hasClass("is-invalid") ||
+      $("#productName").val() === "" ||
+      $("#productPrice").val() === "" ||
+      $("#productDescription").val() === "" ||
+      $("#productImg").val() === "" ||
+      $("#productColor").val() === ""
+    ) {
       alert("Llena los campos que faltan");
       return;
     }
 
     let urlParams = new URLSearchParams(window.location.search);
-    let productID = parseInt(urlParams.get('productID'));
+    let productID = parseInt(urlParams.get("productID"));
 
     console.log($("#productImg").val().split(","));
 
@@ -125,7 +139,7 @@ document.addEventListener("DOMContentLoaded", function () {
       images: images,
       colors: colors,
       category: category,
-    }
+    };
 
     addProduct(productToAdd);
   });

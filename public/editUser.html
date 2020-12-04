@@ -21,10 +21,10 @@
         margin: 1em 1em 0 1em;
       }
 
-      input,
+      /* input,
       button {
         margin: 0.3em;
-      }
+      } */
     </style>
   </head>
 
@@ -52,37 +52,15 @@
               type="search"
               placeholder="Buscar artículos..."
               aria-label="Search"
+              id="inputSearch"
             />
           </li>
-          <!-- <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Dropdown
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </li> -->
         </ul>
-        <!-- <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form> -->
-        <a class="navbar-brand" style="margin-right: 0" href="./orders.html">Pedidos</a>
-        <a class="navbar-brand" href="./user.html" style="margin: 0 2em"
+        <a class="navbar-brand" style="margin-right: 0" href="orders.html">Pedidos</a>
+        <a class="navbar-brand" href="user.html" style="margin: 0 2em"
           ><img src="./imgs/usuario.png" alt="LOGO" width="30px"
         /></a>
-        <a class="navbar-brand" href="#"><img src="./imgs/bolsa-de-la-compra.png" alt="LOGO" width="30px" /></a>
+        <a class="navbar-brand" href="payment.html"><img src="./imgs/bolsa-de-la-compra.png" alt="LOGO" width="30px" /></a>
       </div>
     </nav>
 
@@ -92,25 +70,31 @@
           <h4>Editar datos personales</h4>
           <a href="user.html" class="list-group-item list-group-item-action"> Mi cuenta </a>
           <a href="orders.html" class="list-group-item list-group-item-action">Pedidos</a>
-          <!--<a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
-                <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
-                <a href="#" class="list-group-item list-group-item-action disabled" tabindex="-1"
-                    aria-disabled="true">Vestibulum at eros</a>-->
         </div>
 
         <div class="media col-sm-6">
           <div class="media-body text-center">
             <form class="form-signin text-center" id="updateForm" onsubmit="return handleFormUpdate(event)">
-              <!--<img class="mb-4" src="./imgs/carro-de-la-compra.png" alt="" width="72" height="72" />-->
               <h1 class="h3 mb-3 font-weight-normal">Cambiar datos personales</h1>
               <label for="inputName" class="sr-only">Nombre</label>
-              <input type="text" id="inputName" class="form-control is-valid" placeholder="Nombre(s)" required="" autofocus="" />
+              <input
+                type="text"
+                id="inputName"
+                class="form-control is-valid"
+                placeholder="Nombre(s)"
+                required=""
+                autofocus=""
+              />
 
               <label for="inputSurnames" class="sr-only">Apellidos</label>
-              <input type="text" id="inputSurnames" class="form-control is-valid" placeholder="Apellidos" required="" autofocus="" />
-
-              <!--<label for="inputEmail" class="sr-only">Correo electrónico</label>
-                        <input type="email" id="inputEmail" class="form-control" placeholder="Correo electrónico" required="" autofocus="" />-->
+              <input
+                type="text"
+                id="inputSurnames"
+                class="form-control is-valid"
+                placeholder="Apellidos"
+                required=""
+                autofocus=""
+              />
 
               <label for="inputPassword" class="sr-only">Contraseña</label>
               <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required="" />

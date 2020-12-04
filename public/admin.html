@@ -20,7 +20,7 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    
+
     <style>
       .media {
         border: 1px solid #d5dbdd;
@@ -35,7 +35,7 @@
         height: 120px;
         width: 120px;
       }
-      
+
       #product_img {
         width: 10%;
         height: 10%;
@@ -45,7 +45,6 @@
         margin: 3%;
       }
     </style>
-
   </head>
   <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-primary">
@@ -71,6 +70,7 @@
               type="search"
               placeholder="Buscar artículos..."
               aria-label="Search"
+              id="inputSearch"
             />
           </li>
         </ul>
@@ -78,59 +78,58 @@
         <a class="navbar-brand" href="user.html" style="margin: 0 2em"
           ><img src="./imgs/usuario.png" alt="LOGO" width="30px"
         /></a>
-        <a class="navbar-brand" href="#"><img src="./imgs/bolsa-de-la-compra.png" alt="LOGO" width="30px" /></a>
+        <a class="navbar-brand" href="payment.html"><img src="./imgs/bolsa-de-la-compra.png" alt="LOGO" width="30px" /></a>
       </div>
     </nav>
-    <div id="responseMSG"></div>
-  <div class="col-6 mt-2">
-    <a class="btn btn-success" href="./addProduct.html" role="button">Agregar nuevo producto</a>
-  </div>
 
-  <div class="container" id="productsContainer">
-    <div class="media col-8 mt-2" id="modelo">
-      <div class="media-left align-self-center mr-3">
-        <img class="rounded-circle" style="width: inherit;" src="imgs/bolsa-de-la-compra.png">
-      </div>
-      <div class="media-body">
-        <h4>Nombre del producto</h4>
-        <p>id</p>
-        <p>Precio</p>
-        <p>Descripción</p>
-      </div>
-      <div class="media-right align-self-center">
-        <div class="row">
-          <a href="#" class="btn btn-primary edit"><i class="fas fa-search edit  "></i></a>
+    <div id="responseMSG"></div>
+    <div class="col-6 mt-2">
+      <a class="btn btn-success" href="./addProduct.html" role="button">Agregar nuevo producto</a>
+    </div>
+
+    <div class="container" id="productsContainer">
+      <div class="media col-8 mt-2" id="modelo">
+        <div class="media-left align-self-center mr-3">
+          <img class="rounded-circle" style="width: inherit" src="imgs/bolsa-de-la-compra.png" />
         </div>
-        <div class="row">
-          <a href="#" class="btn btn-primary mt-2"><i class="fas fa-pencil-alt edit  "></i></a>
+        <div class="media-body">
+          <h4>Nombre del producto</h4>
+          <p>id</p>
+          <p>Precio</p>
+          <p>Descripción</p>
         </div>
-        <div class="row">
-          <a href="#" class="btn btn-primary mt-2"><i class="fas fa-trash-alt  remove "></i></a>
+        <div class="media-right align-self-center">
+          <div class="row">
+            <a href="#" class="btn btn-primary edit"><i class="fas fa-search edit"></i></a>
+          </div>
+          <div class="row">
+            <a href="#" class="btn btn-primary mt-2"><i class="fas fa-pencil-alt edit"></i></a>
+          </div>
+          <div class="row">
+            <a href="#" class="btn btn-primary mt-2"><i class="fas fa-trash-alt remove"></i></a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
- 
-  <nav aria-label="...">
-    <ul class="pagination justify-content-center">
-      <li class="page-item disabled">
-        <span class="page-link">Previous</span>
-      </li>
-      <li class="page-item active"><a class="page-link" href="#">1</a></li>
-      <li class="page-item" aria-current="page">
-        <span class="page-link">
-          2
-          <span class="sr-only">(current)</span>
-        </span>
-      </li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item">
-        <a class="page-link" href="#">Next</a>
-      </li>
-    </ul>
-  </nav>
 
-
+    <nav aria-label="...">
+      <ul class="pagination justify-content-center">
+        <li class="page-item disabled">
+          <span class="page-link">Previous</span>
+        </li>
+        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+        <li class="page-item" aria-current="page">
+          <span class="page-link">
+            2
+            <span class="sr-only">(current)</span>
+          </span>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+          <a class="page-link" href="#">Next</a>
+        </li>
+      </ul>
+    </nav>
 
     <footer class="pt-4 my-md-5 pt-md-5 border-top">
       <div style="text-align: center; width: 100%">
@@ -141,39 +140,51 @@
         <p>Información de la pagina <i class="fa fa-registered" aria-hidden="true"></i></p>
       </div>
     </footer>
-  <div class="modal fade" id="deleteFormModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Eliminar producto</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <h3 class=text-danger>¿Estás seguro?</h3>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-danger" data-dismiss="modal" id="deleteProduct">Eliminar Producto</button>
+    <div
+      class="modal fade"
+      id="deleteFormModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Eliminar producto</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <h3 class="text-danger">¿Estás seguro?</h3>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal" id="deleteProduct">Eliminar Producto</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Optional JavaScript -->
-  <script src="js/httprequests.js"></script>
+    <!-- Optional JavaScript -->
+    <script src="js/httprequests.js"></script>
     <script src="js/admin.js"></script>
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-  </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-  </script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-  </script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

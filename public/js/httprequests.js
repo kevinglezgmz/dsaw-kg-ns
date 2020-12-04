@@ -25,6 +25,13 @@ function getTokenValue(cname) {
   return "";
 }
 
+function setCookie(cname, cvalue, exdays) {
+  var d = new Date();
+  d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+  var expires = "expires=" + d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
 function sendHTTPRequest(urlAPI, data, method, cbOK, cbError) {
   let xhr = new XMLHttpRequest();
   xhr.open(method, siteURL + urlAPI);
@@ -34,7 +41,6 @@ function sendHTTPRequest(urlAPI, data, method, cbOK, cbError) {
   xhr.send(data);
   xhr.onload = function () {
     if (xhr.status != 200) {
-      alert(xhr.status + ": " + xhr.statusText);
       cbError(xhr.status + ": " + xhr.statusText + "  // " + xhr.responseText);
     } else {
       cbOK({ status: xhr.status, data: xhr.responseText });
