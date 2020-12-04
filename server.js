@@ -16,6 +16,11 @@ app.use("/api/users", userRouter);
 app.use("/api/orders", orderRouter);
 app.use("/api/login", loginRouter);
 
+app.engine("html", require("ejs").renderFile);
+app.use(function (req, res, next) {
+  res.render("error.html");
+});
+
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });

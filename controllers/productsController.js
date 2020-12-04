@@ -21,8 +21,27 @@ class ProductsController {
   }
 
   async insertProduct(product) {
-    let addedProduct = await PRODUCTS_DB.insert(product);
-    return addedProduct;
+    let products = await productCtrlr.getAllProducts();
+    let productDetails = {
+      name: product.name,
+      score: product.score,
+      reviews: product.reviews,
+      buyers: product.buyers,
+      description: product.description,
+      price: product.price,
+      images: product.images,
+      sizes: product.sizes,
+      colors: product.colors,
+    };
+    let productID = 500000;
+    for (let product of products) {
+      if (product.productID > productID) {
+        productID = product.productID;
+      }
+    }
+    productDetails.productID = productID + 1;
+    let addedProductStatus = await PRODUCTS_DB.insert(productDetails);
+    return addedProductStatus;
   }
 
   async getAllProducts() {
@@ -86,7 +105,19 @@ class ProductsController {
   }
 
   async updateProduct(product) {
-    let updateStatus = await PRODUCTS_DB.insert(product);
+    let productDetails = {
+      productID: product.productID,
+      name: product.name,
+      score: product.score,
+      reviews: product.reviews,
+      buyers: product.buyers,
+      description: product.description,
+      price: product.price,
+      images: product.images,
+      sizes: product.sizes,
+      colors: product.colors,
+    };
+    let updateStatus = await PRODUCTS_DB.insert(productDetails);
     return updateStatus;
   }
 

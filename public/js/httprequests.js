@@ -34,6 +34,7 @@ function setCookie(cname, cvalue, exdays) {
 
 function sendHTTPRequest(urlAPI, data, method, cbOK, cbError) {
   let xhr = new XMLHttpRequest();
+  console.log(siteURL + urlAPI);
   xhr.open(method, siteURL + urlAPI);
   xhr.setRequestHeader("Content-Type", "application/json");
   xhr.setRequestHeader("Authorization", "Bearer " + TOKEN);

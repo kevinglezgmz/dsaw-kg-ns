@@ -5,9 +5,12 @@ function verifyLoggedUser() {
     "",
     HTTPMethods.get,
     (response) => {
-      window.location.replace("/");
+      console.log(response);
+      // window.location.replace("/");
     },
-    (err) => {}
+    (err) => {
+      console.log(err);
+    }
   );
 }
 
