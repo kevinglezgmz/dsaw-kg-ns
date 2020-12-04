@@ -6,24 +6,23 @@ const USERS_DB = cloudant.db.use("users");
 let CURRENT_ID = 0;
 
 async function updateCurrentID() {
-  let usersDB = await USERS_DB.list({
-    include_docs: true,
-  }).rows;
-  if (!usersDB) {
-    CURRENT_ID = 1;
-  } else {
-    let usersList = usersDB.map((obj) => {
-      return obj.userID;
-    });
-    CURRENT_ID = Math.max(...usersList) + 1;
+  let list = await USERS_DB.list({ include_docs: true });
+  let users = [];
+  for (let entry of list.rows) {
+    users.push(entry.doc);
   }
+  let userID = 100000;
+  for (let user of users) {
+    if (user.userID > userID) {
+      userID = user.userID;
+    }
+  }
+  CURRENT_ID = userID + 1;
   console.log(`Current id: ${CURRENT_ID}`);
 }
 class UsersController {
   generateID() {
-    let id = CURRENT_ID;
-    CURRENT_ID++;
-    return id;
+    return CURRENT_ID++;
   }
 
   async createUser(name, lastName, email, password) {
@@ -40,8 +39,15 @@ class UsersController {
 
   async insertUser(user) {
     user.userID = this.generateID();
-    let addedUser = await USERS_DB.insert(user);
-    return addedUser;
+    let userToAdd = {
+      name: user.name,
+      lastName: user.lastName,
+      email: user.email,
+      password: user.password,
+      userID: user.userID,
+    };
+    let addedUserStatus = await USERS_DB.insert(userToAdd);
+    return addedUserStatus;
   }
 
   async updateUser(user) {

@@ -9,7 +9,7 @@ const SECRET_JWT = process.env.SECRET_JWT || "h@la123Cr@yola";
 
 async function authentication(req, res, next) {
   let authHeader = req.get("Authorization");
-  authHeader = authHeader.split(" ")[1];
+  authHeader = authHeader ? authHeader.split(" ")[1] : undefined;
   if (authHeader) {
     let token = jwt.verify(authHeader, SECRET_JWT);
     try {
@@ -18,15 +18,20 @@ async function authentication(req, res, next) {
         req.user = user;
         next();
       } else {
-        res.status(401).send("Not authorized");
+        res.status(401).send({ message: "Not authorized" });
       }
     } catch (err) {
       console.log(err);
+      res.status(500).send({ message: "An unknown error ocurred" });
     }
   } else {
-    res.status(401).send("Not authorized");
+    res.status(401).send({ message: "Not authorized" });
   }
 }
+
+router.get("/", (req, res) => {
+  res.status(405).send({ message: "get all users not allowed" });
+});
 
 router.post("/", async (req, res) => {
   let userData = req.body;
@@ -57,6 +62,7 @@ router.post("/", async (req, res) => {
 
 router.get("/:email", authentication, async (req, res) => {
   let user = await userCtrlr.getUserByEmail(req.params.email);
+  userCtrlr.generateID();
   res.send(user);
 });
 

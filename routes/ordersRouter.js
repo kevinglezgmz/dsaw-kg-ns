@@ -10,7 +10,7 @@ const SECRET_JWT = process.env.SECRET_JWT || "h@la123Cr@yola";
 
 async function authentication(req, res, next) {
   let authHeader = req.get("Authorization");
-  authHeader = authHeader.split(" ")[1];
+  authHeader = authHeader ? authHeader.split(" ")[1] : undefined;
   if (authHeader) {
     let token = jwt.verify(authHeader, SECRET_JWT);
     try {
@@ -19,13 +19,13 @@ async function authentication(req, res, next) {
         req.user = user;
         next();
       } else {
-        res.status(401).send("Not authorized");
+        res.status(401).send({ message: "Not authorized" });
       }
     } catch (err) {
       console.log(err);
     }
   } else {
-    res.status(401).send("Not authorized");
+    res.status(401).send({ message: "Not authorized" });
   }
 }
 
@@ -33,7 +33,11 @@ router.post("/", authentication, async (req, res) => {
   res.set("Content-Type", "application/json");
   if (req.body) {
     let addedOrderStatus = await orderCtrlr.insertOrder(req.user, req.body);
-    res.send(addedOrderStatus);
+    if (addedOrderStatus.ok) {
+      res.send({ message: "Order added to the user successfully" });
+    } else {
+      res.status(500).send({ message: "An unknown error ocurred" });
+    }
   } else {
     res.status(400).send({ message: "Order was not created" });
   }

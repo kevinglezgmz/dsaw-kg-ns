@@ -40,23 +40,24 @@ router.get("/:id", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  console.log(req.body);
-  //let product = productCtrlr.createProduct();
-  let addedProduct = await productCtrlr.insertProduct(req.body);
-  res.send(addedProduct);
+  let addedProductStatus = await productCtrlr.insertProduct(req.body);
+  if (addedProductStatus.ok) {
+    res.send({ message: "Product created successfully" });
+  } else {
+    res.status(500).send({ message: "An unknown error ocurred" });
+  }
 });
 
 router.put("/:id", async (req, res) => {
-  let productUpdatee = req.body;
-  let product = await productCtrlr.getProductByID(req.params.id);
+  let product = await productCtrlr.getProductByID(parseInt(req.params.id));
   res.set("Content-Type", "application/json");
   if (product) {
-    Object.assign(product, productUpdatee);
+    Object.assign(product, req.body);
     let updateStatus = await productCtrlr.updateProduct(product);
     if (updateStatus.ok) {
       res.send({ message: "Product " + product.productID + " updated" });
     } else {
-      res.status(400).send({ message: "Could not update the product" });
+      res.status(500).send({ message: "An unknown error ocurred" });
     }
   } else {
     res.status(404).send({ message: "Product to update was not found" });
@@ -71,7 +72,7 @@ router.delete("/:id", async (req, res) => {
     if (deleteStatus.ok) {
       res.send({ message: "Product " + product.productID + " deleted" });
     } else {
-      res.status(400).send({ message: "Could not delete the product" });
+      res.status(500).send({ message: "An unknown error ocurred" });
     }
   } else {
     res.status(404).send({ message: "Product to delete was not found" });

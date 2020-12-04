@@ -5,18 +5,31 @@ const USERS_DB = cloudant.db.use("users");
 
 class OrdersController {
   async insertOrder(user, order) {
+    let orderDetails = {
+      address: order.address,
+      state: order.state,
+      county: order.county,
+      zip: order.zip,
+      ccName: order.ccName,
+      ccNumber: order.ccNumber,
+      ccExpiration: order.ccExpiration,
+      ccCVV: order.ccCVV,
+      products: order.products,
+      total: order.total,
+      date: order.date,
+    };
     let orderID = 410000;
     if (user.orders) {
       for (let userOrder in user.orders) {
         if (userOrder.orderID > orderID) {
-          orderID = parseInt(order.orderID);
+          orderID = parseInt(orderDetails.orderID);
         }
       }
-      order.orderID = orderID + 1;
-      user.orders.push(order);
+      orderDetails.orderID = orderID + 1;
+      user.orders.push(orderDetails);
     } else {
-      order.orderID = orderID + 1;
-      user.orders = [order];
+      orderDetails.orderID = orderID + 1;
+      user.orders = [orderDetails];
     }
     let addedOrderStatus = await USERS_DB.insert(user);
     return addedOrderStatus;
