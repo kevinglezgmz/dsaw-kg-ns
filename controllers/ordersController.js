@@ -7,14 +7,15 @@ class OrdersController {
   async insertOrder(user, order) {
     let orderID = 410000;
     if (user.orders) {
-      for (let userOrder in orders) {
-        if (parseInt(userOrder.orderID) > orderID) {
+      for (let userOrder in user.orders) {
+        if (userOrder.orderID > orderID) {
           orderID = parseInt(order.orderID);
         }
       }
-      user.orderID = orderID + 1;
+      order.orderID = orderID + 1;
       user.orders.push(order);
     } else {
+      order.orderID = orderID + 1;
       user.orders = [order];
     }
     let addedOrderStatus = await USERS_DB.insert(user);
@@ -32,7 +33,8 @@ class OrdersController {
         county: userOrder.county,
         zip: userOrder.zip,
         products: userOrder.products,
-        total: user.total,
+        total: userOrder.total,
+        date: userOrder.date,
       };
       orders.push(order);
     }

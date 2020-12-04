@@ -17,7 +17,7 @@ function productToHTML(product) {
                 }">
                   <h5 class="mt-0"><a href="#">${product.name}</a></h5>
                   <p>${product.description.substr(0, 55) + "..."}</p>
-                  <p>Precio: ${product.price}</p>
+                  <p>Precio: ${parseFloat(product.price).toFixed(2)}</p>
                 </div>
                 <ul class="buy-list">
                   <li>
@@ -37,6 +37,7 @@ function productToHTML(product) {
 
 function buyProductNow(ev) {
   setCookie("cart-details", ev.target.getAttribute("data-product-id"));
+  window.location.href = "/payment.html";
 }
 
 function addProductToCart(ev) {

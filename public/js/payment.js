@@ -75,7 +75,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   $("#state").on("click", (event) => {
     let state = $("#state").val();
-    console.log(state);
     if (state === "") {
       $("#state").removeClass("is-valid");
       $("#state").addClass("is-invalid");
@@ -87,7 +86,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   $("#county").on("click", (event) => {
     let county = $("#county").val();
-    console.log(county);
     if (county === "") {
       $("#county").removeClass("is-valid");
       $("#county").addClass("is-invalid");
@@ -184,8 +182,6 @@ function placeOrder(ev) {
     orderDetails,
     HTTPMethods.post,
     (response) => {
-      console.log(response);
-      alert(response);
       setCookie("cart-details", "", 0.01);
       window.location.href = "/orders.html";
     },
@@ -222,7 +218,6 @@ function getProducts() {
   if (!products || products.length < 5) {
     window.location.href = "/";
   }
-  console.log(products);
   sendHTTPRequest(
     "/api/products?products=" + products,
     "",

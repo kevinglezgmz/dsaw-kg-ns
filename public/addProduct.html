@@ -1,194 +1,227 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>Agregar producto</title>
+    <link rel="icon" href="./imgs/carro-de-la-compra.png" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-<head>
-  <title>Agregar producto</title>
-  <link rel="icon" href="./imgs/carro-de-la-compra.png" />
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <style>
+      .form-check label {
+        margin: 0% 2% 0% 2%;
+      }
 
-  <style>
-    .form-check label {
-      margin: 0% 2% 0% 2%;
-    }
+      form {
+        margin: 2% 15% 3%;
+      }
 
-    form {
-      margin: 2% 15% 3%;
-    }
+      .form-group,
+      .form-check {
+        margin: 1% 0%;
+      }
 
-    .form-group,
-    .form-check {
-      margin: 1% 0%;
-    }
+      #addProduct {
+        display: block;
+        margin: auto;
+      }
 
-    #addProduct {
-      display: block;
-      margin: auto;
-    }
-  </style>
+      .footer-icon {
+        margin: 0 0.5em;
+      }
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-</head>
+      body::-webkit-scrollbar {
+        width: 10px;
+      }
 
-<body>
-  <nav class="navbar navbar-expand-md navbar-dark bg-primary">
-    <a class="navbar-brand" href="index.html"><img src="./imgs/carro-de-la-compra.png" alt="LOGO" width="30px" /></a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
+      body::-webkit-scrollbar-track {
+        background: none;
+      }
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li>
-          <input
-            style="width: 500px"
-            class="form-control mr-sm-2"
-            type="search"
-            placeholder="Buscar artículos..."
-            aria-label="Search"
-            id="inputSearch"
-          />
-        </li>
-      </ul>
-      <a class="navbar-brand" style="margin-right: 0" href="orders.html">Pedidos</a>
-      <a class="navbar-brand" href="user.html" style="margin: 0 2em"
-        ><img src="./imgs/usuario.png" alt="LOGO" width="30px"
-      /></a>
-      <a class="navbar-brand" href="payment.html"><img src="./imgs/bolsa-de-la-compra.png" alt="LOGO" width="30px" /></a>
-    </div>
-  </nav>
+      body::-webkit-scrollbar-thumb {
+        background-color: rgb(126, 123, 123);
+        border-radius: 20px;
+      }
 
-  <div id="responseMSG"></div>
+      @media (min-width: 760px) {
+        #inputSearch {
+          width: 500px !important;
+        }
+      }
 
-  <form>
-    <div class="form-row">
-      <div class="col-md-4 mb-3">
-        <label for="productName">
-          <h5>Nombre del Producto</h5>
-        </label>
-        <input type="text" class="form-control" id="productName">
+      #navbarSupportedContent {
+        text-align: center;
+      }
+    </style>
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-primary">
+      <a class="navbar-brand" href="index.html"><img src="./imgs/carro-de-la-compra.png" alt="LOGO" width="30px" /></a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li>
+            <input
+              class="form-control mr-sm-2"
+              type="search"
+              placeholder="Buscar artículos..."
+              aria-label="Search"
+              id="inputSearch"
+            />
+          </li>
+        </ul>
+        <a class="navbar-brand" style="margin-right: 0" href="orders.html">Pedidos</a>
+        <a class="navbar-brand" href="user.html" style="margin: 0 2em"
+          ><img src="./imgs/usuario.png" alt="LOGO" width="30px"
+        /></a>
+        <a class="navbar-brand" href="payment.html"><img src="./imgs/bolsa-de-la-compra.png" alt="LOGO" width="30px" /></a>
       </div>
-      <div class="invalid-feedback">
-        Añade el nombre del producto
-      </div>
-      <div class="col-md-4 mb-3">
-        <label for="productPrice">
-          <h5>Precio</h5>
-        </label>
-        <input type="number" class="form-control" id="productPrice">
-        <div class="invalid-feedback">
-          Añade el precio
+    </nav>
+
+    <div id="responseMSG"></div>
+    <form>
+      <div class="form-row">
+        <div class="col-md-4 mb-3">
+          <label for="productName">
+            <h5>Nombre del Producto</h5>
+          </label>
+          <input type="text" class="form-control" id="productName" />
+        </div>
+        <div class="invalid-feedback">Añade el nombre del producto</div>
+        <div class="col-md-4 mb-3">
+          <label for="productPrice">
+            <h5>Precio</h5>
+          </label>
+          <input type="number" class="form-control" id="productPrice" />
+          <div class="invalid-feedback">Añade el precio</div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="productPrice">
+            <h5>ID del producto</h5>
+          </label>
+          <input type="text" class="form-control" id="productID" />
+          <div class="invalid-feedback">Añade el ID</div>
         </div>
       </div>
-      <div class="col-md-4 mb-3">
-        <label for="productPrice">
-          <h5>ID del producto</h5>
+      <div class="form-group">
+        <label for="productDescription">
+          <h5>Descripción</h5>
         </label>
-        <input type="text" class="form-control" id="productID">
-        <div class="invalid-feedback">
-          Añade el ID
-        </div>
+        <textarea class="form-control" id="productDescription" rows="3"></textarea>
+        <div class="invalid-feedback">Añade una descripción</div>
       </div>
-    </div>
-    <div class="form-group">
-      <label for="productDescription">
-        <h5>Descripción</h5>
-      </label>
-      <textarea class="form-control" id="productDescription" rows="3"></textarea>
-      <div class="invalid-feedback">
-        Añade una descripción
+
+      <div class="form-check">
+        <h5>Tallas disponibles</h5>
+        <label class="form-check-label checkbox-inline" for="ECH">
+          <input class="form-check-input" type="checkbox" value="" id="ECH" />
+          ECH
+        </label>
+
+        <label class="form-check-label checkbox-inline" for="CH">
+          <input class="form-check-input" type="checkbox" value="" id="CH" />
+          CH
+        </label>
+
+        <label class="form-check-label checkbox-inline" for="M">
+          <input class="form-check-input" type="checkbox" value="" id="M" />
+          M
+        </label>
+
+        <label class="form-check-label checkbox-inline" for="G">
+          <input class="form-check-input" type="checkbox" value="" id="G" />
+          G
+        </label>
+
+        <label class="form-check-label checkbox-inline" for="XG">
+          <input class="form-check-input" type="checkbox" value="" id="XG" />
+          XG
+        </label>
       </div>
-    </div>
 
-    <div class="form-check">
-      <h5>Tallas disponibles</h5>
-      <label class="form-check-label checkbox-inline" for="ECH">
-        <input class="form-check-input" type="checkbox" value="" id="ECH">
-        ECH
-      </label>
-
-      <label class="form-check-label checkbox-inline" for="CH">
-        <input class="form-check-input" type="checkbox" value="" id="CH">
-        CH
-      </label>
-
-      <label class="form-check-label checkbox-inline" for="M">
-        <input class="form-check-input" type="checkbox" value="" id="M">
-        M
-      </label>
-
-      <label class="form-check-label checkbox-inline" for="G">
-        <input class="form-check-input" type="checkbox" value="" id="G">
-        G
-      </label>
-
-      <label class="form-check-label checkbox-inline" for="XG">
-        <input class="form-check-input" type="checkbox" value="" id="XG">
-        XG
-      </label>
-    </div>
-
-    <div class="form-group">
-      <label for="productImg">
-        <h5>Imagen(es) del producto</h5>
-      </label>
-      <input type="text" class="form-control" id="productImg">
-      <div class="invalid-feedback">
-        Añade el la(s) imagen(es)
+      <div class="form-group">
+        <label for="productImg">
+          <h5>Imagen(es) del producto</h5>
+        </label>
+        <input type="text" class="form-control" id="productImg" />
+        <div class="invalid-feedback">Añade el la(s) imagen(es)</div>
       </div>
-    </div>
-    <div class="form-group">
-      <label for="addColor">
-        <h5>Colores</h5>
-      </label>
-      <input type="text" class="form-control mb-2 mr-sm-2" id="productColor" placeholder="#00000F">
-      <div class="invalid-feedback">
-        Añade color(es)
+      <div class="form-group">
+        <label for="addColor">
+          <h5>Colores</h5>
+        </label>
+        <input type="text" class="form-control mb-2 mr-sm-2" id="productColor" placeholder="#00000F" />
+        <div class="invalid-feedback">Añade color(es)</div>
       </div>
-    </div>
-    <div class="form-group">
-      <label for="category">
-        <h5>Categoría</h5>
-      </label>
-      <select class="custom-select" id="category">
-        <option value="Abrigos" selected>Abrigos</option>
-        <option value="Accesorios">Accesorios</option>
-        <option value="Blusas">Blusas</option>
-        <option value="Camisas">Camisas</option>
-        <option value="Pijamas">Pijamas</option>
-        <option value="Ropa deportiva">Ropa deportiva</option>
-        <option value="Vestidos">Vestidos</option>
-      </select>
-    </div>
-    <div class="form-group"><button type="button" class="btn btn-success" id="addProduct">
-        <h5>Agregar producto</h5>
-      </button></div>
-  </form>
+      <div class="form-group">
+        <label for="category">
+          <h5>Categoría</h5>
+        </label>
+        <select class="custom-select" id="category">
+          <option value="Abrigos" selected>Abrigos</option>
+          <option value="Accesorios">Accesorios</option>
+          <option value="Blusas">Blusas</option>
+          <option value="Camisas">Camisas</option>
+          <option value="Pijamas">Pijamas</option>
+          <option value="Ropa deportiva">Ropa deportiva</option>
+          <option value="Vestidos">Vestidos</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <button type="button" class="btn btn-success" id="addProduct">
+          <h5>Agregar producto</h5>
+        </button>
+      </div>
+    </form>
 
-  <!-- Optional JavaScript -->
-  <script src="js/httprequests.js"></script>
+    <footer class="pt-4 my-md-5 pt-md-5 border-top">
+      <div style="text-align: center; width: 100%">
+        <i class="footer-icon fab fa-twitter fa-3x"></i>
+        <i class="footer-icon fab fa-facebook fa-3x"></i>
+        <i class="footer-icon fab fa-instagram fa-3x"></i>
+        <p></p>
+        <p>Información de la pagina <i class="fa fa-registered" aria-hidden="true"></i></p>
+      </div>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <script src="js/httprequests.js"></script>
     <script src="js/addProduct.js"></script>
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-  </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-  </script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-  </script>
-</body>
-
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
