@@ -51,7 +51,16 @@ class UsersController {
   }
 
   async updateUser(user) {
-    let updateStatus = await USERS_DB.insert(user);
+    let userUpdatee = {
+      _id: user._id,
+      _rev: user._rev,
+      name: user.name,
+      lastName: user.lastName,
+      email: user.email,
+      password: user.password,
+      userID: user.userID,
+    };
+    let updateStatus = await USERS_DB.insert(userUpdatee);
     return updateStatus;
   }
 

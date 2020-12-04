@@ -49,6 +49,8 @@ router.post("/", async (req, res) => {
 });
 
 router.put("/:id", async (req, res) => {
+  delete req.body["_id"];
+  delete req.body["_rev"];
   let product = await productCtrlr.getProductByID(parseInt(req.params.id));
   res.set("Content-Type", "application/json");
   if (product) {
