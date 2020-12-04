@@ -106,6 +106,8 @@ class ProductsController {
 
   async updateProduct(product) {
     let productDetails = {
+      _id: product._id,
+      _rev: product._rev,
       productID: product.productID,
       name: product.name,
       score: product.score,
