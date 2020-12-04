@@ -21,13 +21,74 @@
         margin: 1em 1em 0 1em;
       }
 
-      #product_img {
-        width: 25%;
-        height: 75%;
+      #ordersList {
+        flex-direction: column;
+        max-width: 1280px;
+      }
+
+      .image {
+        width: 6em;
+        height: 9em;
+        align-self: center;
+      }
+
+      .media-body .media-body {
+        align-self: center;
+        padding-left: 2em;
+      }
+
+      .media-body .media {
+        padding-bottom: 2em;
       }
 
       #ordersList {
-        flex-direction: column;
+        border-radius: 0.25rem;
+        border: 1px solid rgba(0, 0, 0, 0.125);
+      }
+
+      .order-box:first-of-type {
+        margin-top: 1em;
+      }
+
+      .order-box {
+        width: 100%;
+        border-radius: 0.25rem;
+        border: 1px solid rgba(0, 0, 0, 0.125);
+        margin-bottom: 1em;
+      }
+
+      .footer-icon {
+        margin: 0 0.5em;
+      }
+
+      body::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      body::-webkit-scrollbar-track {
+        background: none;
+      }
+
+      body::-webkit-scrollbar-thumb {
+        background-color: rgb(126, 123, 123);
+        border-radius: 20px;
+      }
+
+      @media (max-width: 575px) {
+        .list-group:first-of-type {
+          padding-right: 0;
+          padding-bottom: 1em;
+        }
+      }
+
+      @media (min-width: 760px) {
+        #inputSearch {
+          width: 500px !important;
+        }
+      }
+
+      #navbarSupportedContent {
+        text-align: center;
       }
     </style>
   </head>
@@ -51,7 +112,6 @@
         <ul class="navbar-nav mr-auto">
           <li>
             <input
-              style="width: 500px"
               class="form-control mr-sm-2"
               type="search"
               placeholder="Buscar artículos..."

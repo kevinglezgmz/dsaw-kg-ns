@@ -26,8 +26,8 @@
 
       .media {
         align-items: center !important;
-        border-radius: 5px;
-        border: 1px solid rgb(170, 168, 168);
+        border-radius: 0.25rem;
+        border: 1px solid rgba(0, 0, 0, 0.125);
       }
 
       .title-tag {
@@ -51,6 +51,23 @@
 
       .btn-format {
         width: 100%;
+      }
+
+      .footer-icon {
+        margin: 0 0.5em;
+      }
+
+      body::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      body::-webkit-scrollbar-track {
+        background: none;
+      }
+
+      body::-webkit-scrollbar-thumb {
+        background-color: rgb(126, 123, 123);
+        border-radius: 20px;
       }
 
       @media (max-width: 780px) {
@@ -93,6 +110,16 @@
           width: 140px;
         }
       }
+
+      @media (min-width: 760px) {
+        #inputSearch {
+          width: 500px !important;
+        }
+      }
+
+      #navbarSupportedContent {
+        text-align: center;
+      }
     </style>
 
     <!-- Bootstrap CSS -->
@@ -125,7 +152,6 @@
         <ul class="navbar-nav mr-auto">
           <li>
             <input
-              style="width: 500px"
               class="form-control mr-sm-2"
               type="search"
               placeholder="Buscar artículos..."

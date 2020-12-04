@@ -43,10 +43,14 @@ function handleFormSignUp(event) {
             setCookie("user-email", email, 2);
             window.location.replace("/");
           },
-          (err) => {}
+          (err) => {
+            console.log(err);
+          }
         );
       },
-      (err) => {}
+      (err) => {
+        console.log(err);
+      }
     );
   }
 

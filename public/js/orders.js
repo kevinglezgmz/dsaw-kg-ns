@@ -2,13 +2,13 @@ let productsList;
 let ordersList;
 
 function productToHTML(product) {
-  return `<div class="media">
-  <img id="product_img" src="${product.images[0]}" class="align-self-center mr-3">
-  <div class="media-body">
-    <h6 class="mt-0">${product.name}</h6>
-    <p>${product.description}</p>
-  </div>
-</div>`;
+  return `<div class="media" style="width:100%;">
+            <img id="product_img" class="image" src="${product.images[0]}" class="align-self-center mr-3">
+            <div class="media-body">
+              <h6 class="mt-0"><a href="/product.html?productID=${product.productID}">${product.name}</a></h6>
+              <p>${product.description.substr(0, 55) + "..."}</p>
+            </div>
+          </div>`;
 }
 
 function orderToHTML(order) {
@@ -22,11 +22,11 @@ function orderToHTML(order) {
       products.push(product);
     }
   }
-  return `<div class="media-body">
+  return `<div class="media-body order-box">
             <div class="row">
               <div class="col-sm-4">
                 <h6><b>Fecha de compra</b></h6>
-                <p>Hoy</p>
+                <p>${typeof order.date === "string" ? order.date.split("T")[0] : "Sin fecha"}</p>
               </div>
               <div class="col-sm-4">
                 <h6><b>Dirección de envío</b></h6>
@@ -34,12 +34,13 @@ function orderToHTML(order) {
               </div>
             </div>
             <hr>
-            <div class="row">
+            <div class="row" style="display:block;">
               <p><b>Número de pedido:</b> ${order.orderID}</p>
+              <p><b>Total:</b> $${parseFloat(order.total).toFixed(2)}</p>
             </div>
             <hr>
             <div class="row">
-            ${productsList.slice(0, 3).map(productToHTML).join(" ")}
+            ${products.map(productToHTML).join(" ")}
             </div>
           </div>`;
 }
@@ -63,7 +64,6 @@ function getOrdersAndProducts() {
         HTTPMethods.get,
         (data) => {
           productsList = JSON.parse(data.data);
-          console.log(productsList);
           ordersListToHTML(ordersList, "ordersList");
         },
         (error) => {
