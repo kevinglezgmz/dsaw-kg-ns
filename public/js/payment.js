@@ -1,11 +1,5 @@
 let productsList;
-
-function setCookie(cname, cvalue, exdays) {
-  var d = new Date();
-  d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
-  var expires = "expires=" + d.toUTCString();
-  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
+let totalCost;
 
 function productToHTML(product) {
   return `<li class="list-group-item d-flex justify-content-between lh-condensed">
@@ -29,7 +23,7 @@ function goToOrdersPage(event) {
 
 function productsListToHTML(list, id) {
   if (id && list && document.getElementById(id)) {
-    let totalCost = 0;
+    totalCost = 0;
     list.forEach((product) => {
       totalCost += product.price - 50.0;
     });
@@ -71,92 +65,92 @@ document.addEventListener("DOMContentLoaded", () => {
   $("#address").on("keydown", (event) => {
     let address = $("#address").val();
     if (address === "") {
-      $("#address").removeClass('is-valid');
-      $("#address").addClass('is-invalid');
+      $("#address").removeClass("is-valid");
+      $("#address").addClass("is-invalid");
     } else if (address !== "" && $("#address").hasClass("is-invalid")) {
       $("#address").removeClass("is-invalid");
       $("#address").addClass("is-valid");
     }
-  })
+  });
 
   $("#state").on("click", (event) => {
     let state = $("#state").val();
     console.log(state);
     if (state === "") {
-      $("#state").removeClass('is-valid');
-      $("#state").addClass('is-invalid');
+      $("#state").removeClass("is-valid");
+      $("#state").addClass("is-invalid");
     } else if (state !== "" && $("#state").hasClass("is-invalid")) {
       $("#state").removeClass("is-invalid");
       $("#state").addClass("is-valid");
     }
-  })
+  });
 
   $("#county").on("click", (event) => {
     let county = $("#county").val();
     console.log(county);
     if (county === "") {
-      $("#county").removeClass('is-valid');
-      $("#county").addClass('is-invalid');
+      $("#county").removeClass("is-valid");
+      $("#county").addClass("is-invalid");
     } else if (county !== "" && $("#county").hasClass("is-invalid")) {
       $("#county").removeClass("is-invalid");
       $("#county").addClass("is-valid");
     }
-  })
+  });
 
   $("#zip").on("keydown", (event) => {
     let zip = $("#zip").val();
     if (zip === "") {
-      $("#zip").removeClass('is-valid');
-      $("#zip").addClass('is-invalid');
+      $("#zip").removeClass("is-valid");
+      $("#zip").addClass("is-invalid");
     } else if (zip !== "" && $("#zip").hasClass("is-invalid")) {
       $("#zip").removeClass("is-invalid");
       $("#zip").addClass("is-valid");
     }
-  })
+  });
 
   $("#cc-name").on("keydown", (event) => {
     let cc_name = $("#cc-name").val();
     if (cc_name === "") {
-      $("#cc-name").removeClass('is-valid');
-      $("#cc-name").addClass('is-invalid');
+      $("#cc-name").removeClass("is-valid");
+      $("#cc-name").addClass("is-invalid");
     } else if (cc_name !== "" && $("#cc-name").hasClass("is-invalid")) {
       $("#cc-name").removeClass("is-invalid");
       $("#cc-name").addClass("is-valid");
     }
-  })
+  });
 
   $("#cc-number").on("keydown", (event) => {
     let cc_number = $("#cc-number").val();
     if (cc_number === "") {
-      $("#cc-number").removeClass('is-valid');
-      $("#cc-number").addClass('is-invalid');
+      $("#cc-number").removeClass("is-valid");
+      $("#cc-number").addClass("is-invalid");
     } else if (cc_number !== "" && $("#cc-number").hasClass("is-invalid")) {
       $("#cc-number").removeClass("is-invalid");
       $("#cc-number").addClass("is-valid");
     }
-  })
+  });
 
   $("#cc-expiration").on("keydown", (event) => {
     let cc_expiration = $("#cc-expiration").val();
     if (cc_expiration === "") {
-      $("#cc-expiration").removeClass('is-valid');
-      $("#cc-expiration").addClass('is-invalid');
+      $("#cc-expiration").removeClass("is-valid");
+      $("#cc-expiration").addClass("is-invalid");
     } else if (cc_expiration !== "" && $("#cc-expiration").hasClass("is-invalid")) {
       $("#cc-expiration").removeClass("is-invalid");
       $("#cc-expiration").addClass("is-valid");
     }
-  })
-  
+  });
+
   $("#cc-cvv").on("keydown", (event) => {
     let cc_cvv = $("#cc-cvv").val();
     if (cc_cvv === "") {
-      $("#cc-cvv").removeClass('is-valid');
-      $("#cc-cvv").addClass('is-invalid');
+      $("#cc-cvv").removeClass("is-valid");
+      $("#cc-cvv").addClass("is-invalid");
     } else if (cc_cvv !== "" && $("#cc-cvv").hasClass("is-invalid")) {
       $("#cc-cvv").removeClass("is-invalid");
       $("#cc-cvv").addClass("is-valid");
     }
-  })
+  });
 });
 
 function placeOrder(ev) {
@@ -181,9 +175,24 @@ function placeOrder(ev) {
     ccExpiration,
     ccCVV,
     products: orderedProducts,
+    total: totalCost,
+    date: new Date(),
   };
 
-  console.log(JSON.stringify(orderDetails));
+  sendHTTPRequest(
+    "/api/orders",
+    orderDetails,
+    HTTPMethods.post,
+    (response) => {
+      console.log(response);
+      alert(response);
+      setCookie("cart-details", "", 0.01);
+      window.location.href = "/orders.html";
+    },
+    (err) => {
+      console.log(err);
+    }
+  );
 }
 
 function validateCardNumber(cardNumber) {

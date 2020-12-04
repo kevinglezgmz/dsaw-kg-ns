@@ -10,22 +10,6 @@ function userToHTML(user) {
     </div>`;
 }
 
-function getTokenValue(cname) {
-  var name = cname + "=";
-  var decodedCookie = decodeURIComponent(document.cookie);
-  var ca = decodedCookie.split(";");
-  for (var i = 0; i < ca.length; i++) {
-    var c = ca[i];
-    while (c.charAt(0) == " ") {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return "";
-}
-
 function getUser() {
   let email = getTokenValue("user-email");
   sendHTTPRequest(
@@ -46,4 +30,11 @@ function getUser() {
 
 document.addEventListener("DOMContentLoaded", () => {
   getUser();
+
+  let inputSearch = document.getElementById("inputSearch");
+  inputSearch.addEventListener("keydown", (ev) => {
+    if (ev.key === "Enter") {
+      window.location.replace("/productSearch.html?name=" + inputSearch.value);
+    }
+  });
 });

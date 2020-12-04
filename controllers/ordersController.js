@@ -5,7 +5,14 @@ const USERS_DB = cloudant.db.use("users");
 
 class OrdersController {
   async insertOrder(user, order) {
+    let orderID = 410000;
     if (user.orders) {
+      for (let userOrder in orders) {
+        if (parseInt(userOrder.orderID) > orderID) {
+          orderID = parseInt(order.orderID);
+        }
+      }
+      user.orderID = orderID + 1;
       user.orders.push(order);
     } else {
       user.orders = [order];

@@ -1,4 +1,3 @@
-const APIURL = window.location.protocol + "//" + window.location.host + "/api";
 let products;
 
 function categoryProductToCardHTML(product) {
@@ -110,5 +109,12 @@ function getAllProducts() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  let inputSearch = document.getElementById("inputSearch");
+  inputSearch.addEventListener("keydown", (ev) => {
+    if (ev.key === "Enter") {
+      window.location.replace("/productSearch.html?name=" + inputSearch.value);
+    }
+  });
+
   getAllProducts();
 });
