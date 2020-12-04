@@ -32,6 +32,7 @@ class ProductsController {
       images: product.images,
       sizes: product.sizes,
       colors: product.colors,
+      category: product.category,
     };
     let productID = 500000;
     for (let product of products) {
@@ -118,6 +119,7 @@ class ProductsController {
       images: product.images,
       sizes: product.sizes,
       colors: product.colors,
+      category: product.category,
     };
     let updateStatus = await PRODUCTS_DB.insert(productDetails);
     return updateStatus;
