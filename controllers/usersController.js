@@ -59,6 +59,7 @@ class UsersController {
       email: user.email,
       password: user.password,
       userID: user.userID,
+      token: user.token,
     };
     let updateStatus = await USERS_DB.insert(userUpdatee);
     return updateStatus;
